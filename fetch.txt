@@ -12,3 +12,12 @@ kave-e.jpg https://cdn.muapi.ai/outputs/generated/1cb4b80d-5c2a-4173-8ea4-d8083c
 smoothie-e.jpg https://cdn.muapi.ai/outputs/generated/e2f0a3af-d4e7-47d0-b7a6-ad537871602e_92ae9198.jpg
 felirat-e.jpg https://cdn.muapi.ai/outputs/generated/11a379b4-a098-42f4-8abb-3f8c87c7a6aa_d8c4d2f1.jpg
 tulipan-e.jpg https://cdn.muapi.ai/outputs/generated/08deefc7-2d04-4c72-b190-f254b26b30ff_6d413acb.jpg
+ablak-4x.png https://cdn.muapi.ai/outputs/generated/ed21733e-3cdf-409d-a936-8d3a6260e3b9_03a9c8b0.png
+terem-4x.png https://cdn.muapi.ai/outputs/generated/e4b37a46-e563-444d-a617-b42182903659_b59d0095.png
+tukor-4x.png https://cdn.muapi.ai/outputs/generated/b32cf06f-de4f-453a-9195-6b1e41b8d53b_e7154c98.png
+sziszi-4x.png https://cdn.muapi.ai/outputs/generated/7d2c9380-c901-40cf-9853-89acec91f24a_5f2eb2c2.png
+brunch-4x.png https://cdn.muapi.ai/outputs/generated/88146c6d-e1a9-41d6-a1ff-2f28c28317de_b0ffce1a.png
+kave-4x.png https://cdn.muapi.ai/outputs/generated/5530304a-8771-4959-8697-c90079bde0dd_ba458996.png
+smoothie-4x.png https://cdn.muapi.ai/outputs/generated/6857d30e-c4f7-463e-8bc1-5d0271f58d20_84d56de3.png
+felirat-4x.png https://cdn.muapi.ai/outputs/generated/984c5ec6-8078-4ef6-89e1-4c4c63551c04_46155e49.png
+tulipan-4x.png https://cdn.muapi.ai/outputs/generated/35ef09d6-0edf-4185-9c5a-537d8089002c_c694e06a.png
