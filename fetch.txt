@@ -1,3 +1,14 @@
 wix-bar.jpg https://static.wixstatic.com/media/da5e4c_d1346068473e418db676ec40112cdb26~mv2.jpeg
 kutya-edit.jpg https://cdn.muapi.ai/outputs/generated/73c75be6-68db-46ee-9202-8bff5513ef62_c2cf8ecd.jpg
 levelek-1k.jpg https://cdn.muapi.ai/outputs/generated/f711e18f-87e5-4021-99da-4e98b399f4e2_0d2303e8.jpg
+levelek-4x.png https://cdn.muapi.ai/outputs/generated/068959e0-0d34-454d-9cf8-23df21bc11cc_38c20619.png
+kutya-4x.png https://cdn.muapi.ai/outputs/generated/0957582e-dd58-46bd-8c8b-673351361cf5_6f16e947.png
+ablak-e.jpg https://cdn.muapi.ai/outputs/generated/4afaa236-f2e4-4dd4-9a67-8e2ea6e70ece_9243112b.jpg
+terem-e.jpg https://cdn.muapi.ai/outputs/generated/70572fc9-f1c4-4032-b454-256d14b97ab5_3e45e50e.jpg
+tukor-e.jpg https://cdn.muapi.ai/outputs/generated/c88fe521-033a-4d69-9099-73a7eec1da58_b59f65b5.jpg
+sziszi-e.jpg https://cdn.muapi.ai/outputs/generated/456ec828-4245-45b1-a60e-78e02520a37f_851c6dce.jpg
+brunch-e.jpg https://cdn.muapi.ai/outputs/generated/c7140db3-ed57-49eb-9375-f38cfd97bd95_a112e3bf.jpg
+kave-e.jpg https://cdn.muapi.ai/outputs/generated/1cb4b80d-5c2a-4173-8ea4-d8083c46e02b_5c9128a3.jpg
+smoothie-e.jpg https://cdn.muapi.ai/outputs/generated/e2f0a3af-d4e7-47d0-b7a6-ad537871602e_92ae9198.jpg
+felirat-e.jpg https://cdn.muapi.ai/outputs/generated/11a379b4-a098-42f4-8abb-3f8c87c7a6aa_d8c4d2f1.jpg
+tulipan-e.jpg https://cdn.muapi.ai/outputs/generated/08deefc7-2d04-4c72-b190-f254b26b30ff_6d413acb.jpg
