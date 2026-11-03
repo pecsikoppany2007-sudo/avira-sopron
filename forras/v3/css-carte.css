@@ -1,0 +1,24 @@
+/* ------------------------------------------------ étlap: sötét, oldalsó tartalomjegyzékkel */
+.carte { background: var(--night); color: var(--on-dark); }
+.carte__grid { display: grid; grid-template-columns: 4fr 7fr; gap: 6vw; align-items: start; }
+.carte__side { position: sticky; top: 110px; }
+.carte__side > p { color: var(--on-dark-2); font-size: 14.5px; }
+.carte__idx { display: flex; flex-direction: column; margin-top: 36px; border-top: 1px solid var(--line-d); }
+.carte__idx button { display: flex; align-items: baseline; gap: 18px; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line-d); padding: 15px 0; cursor: pointer; font: 400 21px/1.2 var(--serif); color: var(--on-dark-2); transition: color .4s var(--soft), padding .6s var(--ease); }
+.carte__idx button i { font: 500 10px/1 var(--sans); letter-spacing: .16em; font-style: normal; width: 2.4em; color: var(--olive-l); opacity: .7; }
+.carte__idx button:hover { color: var(--on-dark); padding-left: 8px; }
+.carte__idx button[aria-selected='true'] { color: var(--on-dark); padding-left: 8px; }
+.carte__idx button[aria-selected='true'] i { opacity: 1; }
+.carte__list { min-height: 520px; }
+.carte__cat { font: 400 clamp(40px, 4.6vw, 70px)/1 var(--serif); margin: 0 0 8px; }
+.carte__sub { color: var(--on-dark-2); font-size: 14.5px; margin-bottom: 26px; }
+.mi { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 4px 14px; padding: 13px 0; }
+.mi__n { font: 400 22px/1.3 var(--serif); }
+.mi__n sup { white-space: nowrap; font: 500 10px/1 var(--sans); color: var(--olive-l); margin-left: 6px; letter-spacing: .04em; vertical-align: 6px; }
+.mi__l { border-bottom: 1px dotted rgba(238, 232, 219, .28); transform: translateY(-5px); }
+.mi__p { font: 500 14.5px/1.4 var(--sans); white-space: nowrap; font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+.mi__d { grid-column: 1 / -1; font-size: 14px; color: var(--on-dark-2); margin: 0; }
+.carte__note { margin: 26px 0 0; font-size: 14px; color: var(--on-dark-2); max-width: none; }
+.carte__al { font-size: 13.5px; color: var(--on-dark-2); max-width: 90ch; margin-top: 10px; }
+@media (max-width: 900px) { .carte__grid { grid-template-columns: 1fr; } .carte__side { position: static; } .carte__idx { flex-direction: row; flex-wrap: wrap; gap: 0 18px; border: 0; } .carte__idx button { border: 0; padding: 8px 0; font-size: 18px; } .carte__idx button i { display: none; } .carte__list { min-height: 0; } }
+

@@ -1,9 +1,10 @@
-/* Avira Move & Relax – bemutató oldal (v2). GSAP + ScrollTrigger; egérrel Lenis (lassabb, puhább görgetés), érintőn natív görgetés, ott semmi nem követi az ujjat. */
+/* Avira Move & Relax – bemutató oldal (v3, két oldal: kávézó és pilates). GSAP + ScrollTrigger; egérrel Lenis (lassabb, puhább görgetés), érintőn natív görgetés, ott semmi nem követi az ujjat. */
 (function () {
   'use strict';
   var html = document.documentElement;
-  if (!window.gsap || !window.ScrollTrigger) { html.classList.remove('gate-on'); html.classList.remove('js'); return; }
-  html.classList.add('gate-run');
+  if (!window.gsap || !window.ScrollTrigger) { html.classList.remove('intro-on', 'pt-in', 'js'); return; }
+  html.classList.add('intro-run', 'pt-run');
+  var PAGE = html.getAttribute('data-page');
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ autoRound: false });
 
@@ -28,8 +29,12 @@
   /* ------------------------------------------------------------------ szövegek (a magyar a HTML-ben van) */
   var T = {
     de: {
-      'skip': 'Zum Inhalt', 'ui.menu': 'Menü',
-      'nav.about': 'Das Avira', 'nav.day': 'Ein Tag bei uns', 'nav.menu': 'Speisekarte', 'nav.pilates': 'Pilates-Studio', 'nav.time': 'Stundenplan und Preise', 'nav.contact': 'Kontakt',
+      'skip': 'Zum Inhalt',
+      'ui.menu': 'Menü', 'hero.pil': 'Avira Pilates', 'tease.s': 'Reformer-Pilates-Studio im selben Gebäude, ab 9. November', 'tease.go': 'Zum Studio',
+      'navp.studio': 'Das Studio', 'navp.coach': 'Die Trainerin', 'navp.time': 'Stundenplan', 'navp.price': 'Preise', 'navp.foot': 'im selben Gebäude wie das Avira Café',
+      'phero.s': 'Reformer-Pilates-Studio in Sopron, ab 9. November', 'phero.addr': 'Táncsics u. 68., im selben Gebäude wie das Avira Café und das GYMTronic',
+      'pcontact.h': 'Montag bis Freitag, laut Stundenplan', 'pcontact.k': 'Nach dem Training', 'pcontact.p': 'Im selben Gebäude: Kaffee, Smoothies, Proteinshakes, mit GYMTronic-Abo 10 % günstiger.',
+      'nav.about': 'Das Avira', 'nav.day': 'Ein Tag bei uns', 'nav.menu': 'Speisekarte', 'nav.pilates': 'Pilates-Studio', 'nav.time': 'Stundenplan und Preise', 'nav.contact': 'Kontakt', 'nav.pil': 'Avira Pilates',
       'hero.title': 'Café und Reformer-Pilates in Sopron', 'hero.addr': 'Táncsics u. 68., im alten Eisenwarenhaus, neben dem GYMTronic', 'hero.menu': 'Speisekarte', 'hero.time': 'Pilates-Stundenplan',
       'lede.p': 'Das Avira hat im alten Eisenwarenhaus eröffnet, im selben Gebäude wie das Fitnessstudio GYMTronic. Das Café ist täglich von 7 bis 22 Uhr geöffnet, im Reformer-Pilates-Studio gibt es ab dem 9. November Stunden.',
       'pair.cafe': 'Kaffee, Brunch, Cocktails', 'pair.pil': 'Reformer-Pilates',
@@ -44,7 +49,6 @@
       'ch8.h': 'Wir schließen', 'ch8.p': 'Um 22 Uhr schließen wir, um 7 Uhr morgens öffnen wir wieder.',
       'menu.title': 'Speisekarte', 'menu.lede': 'Preise in Forint, inklusive Mehrwertsteuer.',
       'menu.al': 'Die Zahlen kennzeichnen Allergene:', 'menu.alBtn': 'was bedeuten sie?', 'menu.more': 'Bier, Wein, Spirituosen und Softdrinks auf der vollständigen Karte:', 'menu.pdf': 'Speise- und Getränkekarte (PDF, ungarisch)',
-      'portal.s': 'Reformer-Pilates-Studio, ab 9. November',
       'pil.title': 'Reformer-Pilates-Studio', 'pil.p1': 'Im Studio stehen 4 neue Align-Reformer. Ihr seid also wenige in einer Stunde, und die Trainerin kann auf jede und jeden achten.',
       'pil.p2': 'Jede Stunde dauert 50 Minuten, Funktionelles Reformer-Pilates. Neben Gruppenstunden geben wir auch Einzel- und Paarstunden.',
       'coach.role': 'Physiotherapeutin, Reformer-Pilates-Trainerin', 'coach.q': '„Als Physiotherapeutin sind mir bewusste, kontrollierte Bewegung und die richtige Ausführung der Übungen wichtig. Mein Ziel ist, dass du in den Stunden nicht nur stärker wirst, sondern auch körperlich und seelisch auftankst.”',
@@ -56,7 +60,11 @@
       'foot.company': 'Betreiber: Hajnal Bolt Kft. · Geschäftsführer: László Meszlényi', 'foot.photos': 'Fotos: Avira Move & Relax', 'foot.priv': 'Datenschutz', 'foot.privT': 'Diese Seite verwendet keine Cookies und sammelt keine personenbezogenen Daten. Die gewählte Sprache merkt sich dein Browser.', 'foot.demo': 'Demoseite, nicht die offizielle Website von Avira.', 'foot.made': 'Gestaltet von kettő'
     },
     en: {
-      'skip': 'Skip to content', 'ui.menu': 'Menu',
+      'skip': 'Skip to content',
+      'ui.menu': 'Menu', 'hero.pil': 'Avira Pilates', 'tease.s': 'Reformer Pilates studio in the same building, from 9 November', 'tease.go': 'Visit the studio',
+      'navp.studio': 'The studio', 'navp.coach': 'The instructor', 'navp.time': 'Timetable', 'navp.price': 'Prices', 'navp.foot': 'in the same building as Avira Café',
+      'phero.s': 'Reformer Pilates studio in Sopron, from 9 November', 'phero.addr': 'Táncsics u. 68., in the same building as Avira Café and GYMTronic',
+      'pcontact.h': 'Monday to Friday, see the timetable', 'pcontact.k': 'After class', 'pcontact.p': 'In the same building: coffee, smoothies, protein shakes, 10% off with a GYMTronic pass.',
       'nav.about': 'About Avira', 'nav.day': 'A day with us', 'nav.menu': 'Menu', 'nav.pilates': 'Pilates studio', 'nav.time': 'Timetable and prices', 'nav.contact': 'Contact',
       'hero.title': 'Café and reformer Pilates in Sopron', 'hero.addr': 'Táncsics u. 68., in the old hardware store, next to GYMTronic', 'hero.menu': 'Menu', 'hero.time': 'Pilates timetable',
       'lede.p': 'Avira opened in the old hardware store, in the same building as the GYMTronic gym. The café is open every day from 7 am to 10 pm, and reformer Pilates classes start in the studio on 9 November.',
@@ -72,7 +80,6 @@
       'ch8.h': 'Closing', 'ch8.p': 'We close at 10 pm and open again at 7 am.',
       'menu.title': 'Menu', 'menu.lede': 'Prices in forints, VAT included.',
       'menu.al': 'The numbers mark allergens:', 'menu.alBtn': 'what do they mean?', 'menu.more': 'Beer, wine, spirits and soft drinks are on the full list:', 'menu.pdf': 'food and drinks menu (PDF, Hungarian)',
-      'portal.s': 'Reformer Pilates studio, from 9 November',
       'pil.title': 'Reformer Pilates studio', 'pil.p1': 'The studio has 4 brand-new Align reformers, so classes stay small and the instructor can watch everyone.',
       'pil.p2': 'Every class is a 50-minute Functional Reformer Pilates session. Besides group classes we also teach private and duo sessions.',
       'coach.role': 'physiotherapist, reformer Pilates instructor', 'coach.q': '“As a physiotherapist, mindful, controlled movement and doing each exercise correctly matter to me. My goal is that you don’t just get stronger in class, but recharge in body and mind.”',
@@ -193,16 +200,18 @@
   function hm(m) { m = Math.round(m); return Math.floor(m / 60) + ':' + ('0' + m % 60).slice(-2); }
   function renderLive() {
     var b = bud(), open = b.m >= 420 && b.m < 1320;
+    $('#clock').textContent = hm(b.m);
+    if (PAGE === 'pil') { $('#liveTxt').textContent = nextTxt || 'Avira Pilates'; return; }
     $('#live').classList.toggle('is-open', open);
     $('#liveTxt').textContent = open
       ? L(['Most nyitva, 22:00-ig', 'Jetzt geöffnet, bis 22:00', 'Open now, until 22:00'])
       : L(['Most zárva, ' + (b.m < 420 ? 'ma' : 'holnap') + ' 7:00-kor nyitunk', 'Jetzt geschlossen, öffnet ' + (b.m < 420 ? 'heute' : 'morgen') + ' um 7:00', 'Closed now, opens ' + (b.m < 420 ? 'today' : 'tomorrow') + ' at 7:00']);
-    $('#clock').textContent = hm(b.m);
-    placeNow(b.m);
+    if (dialNow) placeNow(b.m);
   }
 
   /* ------------------------------------------------------------------ étlap, órarend, árak kirajzolása */
   var ROM = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'], tabI = 0;
+  var nextTxt = '';
   function renderTabs() {
     $('#tabs').innerHTML = MENU.map(function (g, i) { return '<button type="button" role="tab" id="tab' + i + '" aria-controls="menuList" aria-selected="' + (i === tabI) + '" tabindex="' + (i === tabI ? 0 : -1) + '"><i>' + ROM[i] + '</i>' + esc(L(g.k)) + '</button>'; }).join('');
   }
@@ -233,8 +242,9 @@
         w[1].map(function (s) { return '<span class="slot' + (nextK === w[0] + '-' + s ? ' is-next' : '') + '"><b>' + s + '–' + hm(mins(s) + 50) + '</b><span>Funkcionális Reformer Pilates</span></span>'; }).join('') + '</div></div>';
     }).join('');
     var nk = nextK ? nextK.split('-') : null;
-    $('#weekNext').innerHTML = nk ? (before ? L(['Az első óra: ', 'Die erste Stunde: ', 'First class: ']) + '<b>' + L(['november 9., hétfő ', 'Montag, 9. November, ', 'Monday 9 November, ']) + nk[1] + '</b>'
+    var wn = $('#weekNext'); wn.innerHTML = nk ? (before ? L(['Az első óra: ', 'Die erste Stunde: ', 'First class: ']) + '<b>' + L(['november 9., hétfő ', 'Montag, 9. November, ', 'Monday 9 November, ']) + nk[1] + '</b>'
       : L(['A következő óra: ', 'Die nächste Stunde: ', 'Next class: ']) + '<b>' + esc(L(DAYS[+nk[0]])).toLowerCase().replace(/^./, function (c) { return lang === 'hu' ? c : c.toUpperCase(); }) + ' ' + nk[1] + '</b>') : '';
+    nextTxt = wn.textContent;
   }
   function renderPrices() {
     $('#priceList').innerHTML = PRICES.map(function (p) {
@@ -244,8 +254,7 @@
   }
 
   /* ------------------------------------------------------------------ címek szavanként (kiélesedés), bevezető szavanként világosodik */
-  $('.foot__word').classList.add('bl');
-  function splitBl() {
+    function splitBl() {
     $$('.bl').forEach(function (h) {
       var tx = h.textContent.trim();
       h.setAttribute('aria-label', tx);
@@ -272,17 +281,22 @@
     ledeWords.forEach(function (w, i) { w.classList.toggle('on', reduced || i < n); });
   }
 
-  /* ------------------------------------------------------------------ napóra: az ecsetvonásos kör a 6:00–22:00 számlap */
-  var nap = $('#nap'), chs = $$('.ch', nap), TT = chs.map(function (c) { return +c.getAttribute('data-t'); }), CC = chs.map(function (c) { return c.getAttribute('data-c'); });
-  var NS = 'http://www.w3.org/2000/svg', dialDot = $('#dialDot'), dialNow = $('#dialNow'), dialT = $('#dialT'), dialN = $('#dialN'), nowT;
-  function ang(h) { return (-20 + 322 * (h - 6) / 16) * Math.PI / 180; }
+  /* ------------------------------------------------------------------ napóra: vékony számlap 6:00-tól 22:00-ig, a megtett út vonallal */
+  var nap = $('#nap'), chs = nap ? $$('.ch', nap) : [], TT = chs.map(function (c) { return +c.getAttribute('data-t'); }), CC = chs.map(function (c) { return c.getAttribute('data-c'); });
+  var NS = 'http://www.w3.org/2000/svg', dialDot = $('#dialDot'), dialNow = $('#dialNow'), dialT = $('#dialT'), dialN = $('#dialN'), dialArc = $('#dialArc'), nowT;
+  var DR = 112;
+  function ang(h) { return (-75 + 330 * (h - 6) / 16) * Math.PI / 180; }
   function svgEl(n, at) { var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
-  (function () {
+  function arcTo(h) {
+    var a0 = ang(6), a1 = ang(Math.max(6.001, h)), large = (a1 - a0) > Math.PI ? 1 : 0;
+    return 'M' + (Math.cos(a0) * DR).toFixed(2) + ' ' + (Math.sin(a0) * DR).toFixed(2) + 'A' + DR + ' ' + DR + ' 0 ' + large + ' 1 ' + (Math.cos(a1) * DR).toFixed(2) + ' ' + (Math.sin(a1) * DR).toFixed(2);
+  }
+  if (dialDot) (function () {
     var g = $('#dialTicks');
     for (var h = 6; h <= 22; h++) {
-      var a = ang(h), c = Math.cos(a), s = Math.sin(a), ev = h % 2 === 0, r1 = ev ? 113 : 117;
-      g.appendChild(svgEl('line', { x1: (c * r1).toFixed(1), y1: (s * r1).toFixed(1), x2: (c * 124).toFixed(1), y2: (s * 124).toFixed(1), 'class': 'dial__tick' }));
-      if (ev) { var tx = svgEl('text', { x: (c * 139).toFixed(1), y: (s * 139).toFixed(1), 'class': 'dial__lab' }); tx.textContent = h; g.appendChild(tx); }
+      var a = ang(h), c = Math.cos(a), s = Math.sin(a), ev = h % 2 === 0, r1 = ev ? 100 : 104;
+      g.appendChild(svgEl('line', { x1: (c * r1).toFixed(1), y1: (s * r1).toFixed(1), x2: (c * (DR - 5)).toFixed(1), y2: (s * (DR - 5)).toFixed(1), 'class': 'dial__tick' }));
+      if (ev) { var tx = svgEl('text', { x: (c * 132).toFixed(1), y: (s * 132).toFixed(1), 'class': 'dial__lab' }); tx.textContent = h; g.appendChild(tx); }
     }
     nowT = svgEl('text', { 'class': 'dial__nowT' }); g.appendChild(nowT);
   })();
@@ -290,9 +304,9 @@
     var on = m >= 360 && m <= 1320;
     dialNow.style.display = nowT.style.display = on ? '' : 'none';
     if (!on) return;
-    var a = ang(m / 60);
-    dialNow.setAttribute('cx', (Math.cos(a) * 101).toFixed(1)); dialNow.setAttribute('cy', (Math.sin(a) * 101).toFixed(1));
-    var cA = Math.cos(a); nowT.setAttribute('x', (cA * 160).toFixed(1)); nowT.setAttribute('y', (Math.sin(a) * 158).toFixed(1)); nowT.style.textAnchor = cA > .3 ? 'start' : cA < -.3 ? 'end' : 'middle';
+    var a = ang(m / 60), cA = Math.cos(a);
+    dialNow.setAttribute('cx', (cA * 150).toFixed(1)); dialNow.setAttribute('cy', (Math.sin(a) * 150).toFixed(1));
+    nowT.setAttribute('x', (cA * 160).toFixed(1)); nowT.setAttribute('y', (Math.sin(a) * 158).toFixed(1)); nowT.style.textAnchor = cA > .3 ? 'start' : cA < -.3 ? 'end' : 'middle';
     nowT.textContent = L(['most', 'jetzt', 'now']);
   }
 
@@ -310,8 +324,10 @@
     if (save) { try { localStorage.setItem('avira-lang', l); } catch (e) {} }
     $$('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (el.textContent !== v) el.textContent = v; });
     $$('.ui__lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l); });
-    renderTabs(); renderMenu(false); renderAl(); renderWeek(); renderPrices(); renderLive();
-    splitBl(); splitLede(); lightLede(ledeP);
+    if ($('#tabs')) { renderTabs(); renderMenu(false); renderAl(); }
+    if ($('#weekGrid')) { renderWeek(); renderPrices(); }
+    renderLive();
+    splitBl(); if ($('#ledeP')) { splitLede(); lightLede(ledeP); }
     if (window.ScrollTrigger && ready) ScrollTrigger.refresh();
   }
   applyLang(pickLang(), false);
@@ -319,6 +335,7 @@
   $$('.ui__lang button').forEach(function (b) { b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang'), true); }); });
 
   /* ------------------------------------------------------------------ étlap fülei */
+  if ($('#tabs')) {
   $('#tabs').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     var i = $$('#tabs button').indexOf(b); if (i === tabI) return;
@@ -330,26 +347,27 @@
     e.preventDefault(); tabI = (tabI + (f ? 1 : MENU.length - 1)) % MENU.length;
     renderTabs(); renderMenu(true); $('#tab' + tabI).focus({ preventScroll: true });
   });
+  }
   function toggler(btn, box) { btn.addEventListener('click', function () { var o = box.hidden; box.hidden = !o; btn.setAttribute('aria-expanded', o); if (ready) ScrollTrigger.refresh(); }); }
-  toggler($('#alBtn'), $('#alList')); toggler($('#privBtn'), $('#priv'));
+  if ($('#alBtn')) toggler($('#alBtn'), $('#alList')); toggler($('#privBtn'), $('#priv'));
 
   /* ------------------------------------------------------------------ nyitókép */
   function heroIn() {
     if (heroDone) return; heroDone = true;
     blIn($('#heroTitle'), .05);
     if (reduced) return;
-    gsap.from('.hero__addr, .hero__btns', { y: 20, opacity: 0, duration: 1.4, stagger: .12, ease: 'expo.out', delay: .55, clearProps: 'transform,opacity' });
-    if (!html.classList.contains('gate-on')) gsap.fromTo('.hero__stack img', { scale: 1.12 }, { scale: 1.04, duration: 2.6, ease: 'expo.out' });
+    gsap.from($$('.hero__kick, .hero__addr, .hero__go .go'), { y: 20, opacity: 0, duration: 1.4, stagger: .1, ease: 'expo.out', delay: .45, clearProps: 'transform,opacity' });
+    if (!html.classList.contains('intro-on')) gsap.fromTo('.hero__stack img', { scale: 1.12 }, { scale: 1.04, duration: 2.8, ease: 'expo.out' });
   }
 
   var G = { ok: false, m: [0, 0], mT: [0, 0], run: false, vis: true };
   var heroEl = $('#top');
-  if (canHover && !reduced && hwGpu && !window.__noGl) (function () {
+  if (canHover && !reduced && hwGpu && !window.__noGl && heroEl && heroEl.getAttribute('data-gl')) (function () {
     var VS = 'attribute vec2 a;varying vec2 v;void main(){v=vec2(a.x*.5+.5,.5-a.y*.5);gl_Position=vec4(a,0.,1.);}';
     var FS = [
       'precision highp float;varying vec2 v;',
       'uniform sampler2D uI,uD;uniform vec2 uRes,uM;uniform float uAR,uOver;',
-      'const vec2 POS=vec2(.5,.62);',
+      'const vec2 POS=vec2(.5,.42);',
       'vec2 img(vec2 p){float sa=uRes.x/uRes.y;vec2 s=sa>uAR?vec2(1.,uAR/sa):vec2(sa/uAR,1.);',
       ' vec2 o=(1.-s)*POS;vec2 c=o+.5*s;return c+(o+p*s-c)/uOver;}',
       'void main(){vec2 p=v;',
@@ -392,7 +410,7 @@
     }
     G.kick = function () { if (G.ok && G.vis && !G.run) { G.run = true; gsap.ticker.add(frame); } };
     function load() {
-      im.src = 'img/cafe-boksz-2200.webp?v=2'; dep.src = 'img/cafe-boksz-depth.webp?v=2';
+      im.src = 'img/hero-bar-2400.webp?v=3'; dep.src = 'img/hero-bar-depth.webp?v=3';
       var bm = function (x) { return window.createImageBitmap ? createImageBitmap(x).catch(function () { return x; }) : Promise.resolve(x); };
       Promise.all([im.decode(), dep.decode()]).then(function () { return Promise.all([bm(im), bm(dep)]); }).then(function (bms) {
         tex(0, bms[0]); tex(1, bms[1]);
@@ -412,6 +430,104 @@
     window.addEventListener('resize', function () { if (G.ok && (innerWidth !== lastW || Math.abs(innerHeight - lastH) > 160)) { size(); draw(); } });
   })();
 
+  /* ------------------------------------------------------------------ levelek: valódi levélfotók a sarkokban; legyezőként kinyílnak, lassan ringatóznak,
+     az egér és a görgetés meglebbenti őket (rugós lengés, csak amíg mozognak) */
+  // [kép szélessége px, szár helye x %, y %] – a szár az a pont, ami körül a levél forog
+  var LF = [null, [365, 42.9, 91.4], [373, 49.9, 91.4], [168, 42.3, 95.6], [371, 42.3, 91.5], [163, 46.9, 96], [172, 44.8, 95.8], [153, 45.8, 96.2], [373, 46.5, 91.5], [374, 40.9, 91.5], [175, 44, 95.8]];
+  // csoportok: [levél, irány fokban (0 = felfelé, óramutató szerint), méret]
+  var CL = {
+    ledeL: [[5, 34, .9], [4, 58, 1.1], [3, 80, 1.05], [1, 102, 1], [6, 124, .95], [9, 146, .85]],
+    ledeR: [[6, -34, .85], [2, -56, 1.1], [10, -78, 1], [8, -102, 1], [7, -126, .9], [4, -148, .85]],
+    carte: [[5, 12, .9], [1, 30, .95], [3, 52, 1], [9, 72, .9], [2, 94, .8]],
+    night: [[2, -108, .85], [4, -130, .95], [6, -152, .9], [7, -172, .8]],
+    pilR: [[3, -40, 1], [1, -62, 1.05], [5, -84, .95], [8, -106, .95], [10, -128, .85]],
+    coach: [[5, 36, .9], [2, 60, 1], [3, 84, 1], [9, 108, .9], [6, 132, .85]],
+    coachR: [[6, -36, .85], [4, -60, 1], [10, -84, 1], [1, -108, .9], [7, -132, .85]]
+  };
+  var LV = { list: [], cl: [], run: false };
+  function initLeaves() {
+    $$('.lfc').forEach(function (el) {
+      var cfg = CL[el.getAttribute('data-cl')]; if (!cfg) return;
+      var c = { el: el, lv: [], on: false, k: 1, ox: 0, oy: 0 };
+      if (innerWidth < 760) cfg = cfg.filter(function (d) { return Math.abs(d[1]) <= 125; });
+      cfg.forEach(function (d, i) {
+        var m = LF[d[0]], wide = m[0] > 300, w = Math.round((wide ? 150 : 72) * d[2]), h = 720 * w / m[0];
+        var lf = document.createElement('span'); lf.className = 'lf';
+        var off = i - (cfg.length - 1) / 2, oy = Math.round(off * 30), ox = -Math.round(Math.abs(off) * 10) * (d[1] < 0 ? -1 : 1);
+        lf.style.cssText = '--w:' + w + 'px;--sx:' + m[1] + '%;--sy:' + m[2] + '%;--r:' + d[1] + 'deg;left:calc(var(--k) * ' + ox + 'px);top:calc(var(--k) * ' + oy + 'px)';
+        lf.innerHTML = '<span class="lf__g"><span class="lf__m"><span class="lf__s" style="--d:' + (5.5 + (i * 1.7) % 4).toFixed(1) + 's;--dl:-' + (i * 1.3).toFixed(1) + 's;--sw:' + (wide ? 1.4 : 2.2) + 'deg">' +
+          '<img src="img/lf/lf' + d[0] + '.webp?v=3" alt="" width="' + m[0] + '" height="720" loading="lazy" decoding="async"></span></span></span>';
+        el.appendChild(lf);
+        c.lv.push({ g: lf.firstChild, m: lf.firstChild.firstChild, r: d[1], a: 0, v: 0, len: h * m[2] / 100, last: '' });
+      });
+      LV.cl.push(c);
+    });
+    if (!LV.cl.length) return;
+    var measureK = function () { LV.cl.forEach(function (c) { c.k = parseFloat(getComputedStyle(c.el).getPropertyValue('--k')) || 1; }); };
+    measureK(); window.addEventListener('resize', measureK);
+    // kinyílás: a levelek összecsukva, kicsiben indulnak, és legyezőként szétnyílnak
+    var open = function (c) {
+      c.el.classList.add('is-open');
+      if (reduced) return;
+      var mean = c.lv.reduce(function (s, o) { return s + o.r; }, 0) / c.lv.length;
+      gsap.fromTo(c.lv.map(function (o) { return o.g; }),
+        { scale: .1, opacity: 0, rotation: function (i) { return (mean - c.lv[i].r) * .9; } },
+        { scale: 1, opacity: 1, rotation: 0, duration: 2.6, ease: 'expo.out', stagger: .085, delay: .05 });
+    };
+    if (!('IntersectionObserver' in window)) { LV.cl.forEach(function (c) { c.el.classList.add('is-open', 'is-on'); c.on = true; }); return; }
+    var oOpen = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { oOpen.unobserve(e.target); open(LV.cl.filter(function (c) { return c.el === e.target; })[0]); } }); }, { rootMargin: '0px 0px -14% 0px' });
+    var oOn = new IntersectionObserver(function (es) { es.forEach(function (e) { var c = LV.cl.filter(function (x) { return x.el === e.target; })[0]; c.on = e.isIntersecting; c.el.classList.toggle('is-on', c.on); }); }, { rootMargin: '360px 0px 360px 0px' });
+    LV.cl.forEach(function (c) { oOpen.observe(c.el); oOn.observe(c.el); });
+    if (reduced || !canHover) return;
+
+    // rugós lengés: szög (a) és szögsebesség (v) levelenként
+    function tick() {
+      var dr = Math.min(3, gsap.ticker.deltaRatio()), moving = false;
+      LV.cl.forEach(function (c) {
+        c.lv.forEach(function (o) {
+          if (o.a === 0 && o.v === 0) return;
+          o.v += -o.a * .045 * dr; o.v *= Math.pow(.9, dr); o.a += o.v * dr;
+          if (o.a > 24) { o.a = 24; o.v *= -.3; } else if (o.a < -24) { o.a = -24; o.v *= -.3; }
+          if (Math.abs(o.a) < .02 && Math.abs(o.v) < .02) { o.a = o.v = 0; }
+          else moving = true;
+          var t = 'rotate(' + o.a.toFixed(2) + 'deg)'; if (t !== o.last) { o.last = t; o.m.style.transform = t; }
+        });
+      });
+      if (!moving) { LV.run = false; gsap.ticker.remove(tick); }
+    }
+    function kick() { if (!LV.run) { LV.run = true; gsap.ticker.add(tick); } }
+    // egér: ahol a mutató átsöpör egy levélen, a mozgás merőleges része meglöki; a levél vége jobban leng, mint a töve
+    var px = -1e4, py = -1e4;
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      var x = e.clientX, y = e.clientY, dx = x - px, dy = y - py, first = px < -1e3;
+      px = x; py = y; if (first) return;
+      dx = Math.max(-60, Math.min(60, dx)); dy = Math.max(-60, Math.min(60, dy));
+      var hit = false;
+      LV.cl.forEach(function (c) {
+        if (!c.on) return;
+        var r = c.el.getBoundingClientRect(), qx0 = x - r.left, qy0 = y - r.top, reach = 0;
+        c.lv.forEach(function (o) { reach = Math.max(reach, o.len * c.k); });
+        if (qx0 * qx0 + qy0 * qy0 > (reach + 90) * (reach + 90)) return;
+        c.lv.forEach(function (o) {
+          var ra = (o.r + o.a) * Math.PI / 180, ux = Math.sin(ra), uy = -Math.cos(ra), L = o.len * c.k;
+          var t = Math.max(0, Math.min(L, qx0 * ux + qy0 * uy)), nx = qx0 - ux * t, ny = qy0 - uy * t, d = Math.sqrt(nx * nx + ny * ny), R = 26 + 34 * c.k;
+          if (d > R) return;
+          var f = (1 - d / R) * (.3 + .7 * t / L), push = dx * Math.cos(ra) + dy * Math.sin(ra);
+          o.v += push * f * .16; hit = true;
+        });
+      });
+      if (hit) kick();
+    }, { passive: true });
+    // görgetés: a levél vége lemarad a tartalom mögött, mintha a levegő fogná
+    if (lenis) lenis.on('scroll', function (l) {
+      var vel = Math.max(-40, Math.min(40, l.velocity || 0)); if (Math.abs(vel) < .5) return;
+      var any = false;
+      LV.cl.forEach(function (c) { if (!c.on) return; any = true; c.lv.forEach(function (o, i) { o.v += Math.sin(o.r * Math.PI / 180) * vel * (.010 + (i % 3) * .003); }); });
+      if (any) kick();
+    });
+  }
+
   /* ------------------------------------------------------------------ puha görgetés egérrel */
   var lenis = null;
   if (canHover && !reduced && window.Lenis) {
@@ -427,14 +543,40 @@
       if (el === null) return;
       e.preventDefault();
       if (el === 0) { lenis.scrollTo(0, { duration: 1.8 }); return; }
-      var h = el.classList.contains('is-pinned') ? null : el.querySelector('h2, h3');
+      var h = el.querySelector('h2, h3');
       lenis.scrollTo(h || el, { offset: h ? -130 : 0, duration: 1.8 });
     });
   }
 
+  /* ------------------------------------------------------------------ oldalváltás: panel fut fel a cél logójával, az új oldalon felfelé kifut */
+  var pt = $('#pt');
+  function leave(href, to) {
+    try { sessionStorage.setItem('avira-pt', PAGE); } catch (e) {}
+    if (reduced || !pt) { location.href = href; return; }
+    pt.className = 'pt to-' + to;
+    gsap.killTweensOf([pt, $('.pt__in', pt)]);
+    gsap.set(pt, { visibility: 'visible' });
+    gsap.fromTo(pt, { yPercent: 100 }, { yPercent: 0, duration: .9, ease: 'expo.inOut', onComplete: function () { location.href = href; } });
+    gsap.fromTo($('.pt__in', pt), { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'expo.out', delay: .35 });
+    if (lenis) lenis.stop();
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-page]');
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    var to = a.getAttribute('data-page'), href = a.getAttribute('href');
+    e.preventDefault();
+    if (to === PAGE) { if (lenis) lenis.scrollTo(0, { duration: 1.6 }); else scrollTo(0, 0); return; }
+    leave(href, to);
+  });
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted || !pt) return;
+    gsap.killTweensOf([pt, $('.pt__in', pt)]); gsap.set([pt, $('.pt__in', pt)], { clearProps: 'all' }); pt.className = 'pt';
+    if (lenis) lenis.start();
+  });
+
   /* ------------------------------------------------------------------ teljes képernyős menü: kör alakban nyílik a gomb felől */
   var menu = $('#menu'), mBtn = $('#menuBtn'), mOpen = false, mainEl = $('#main'), footEl = $('#foot');
-  var mLinks = $$('.menu__nav a', menu), phs = $$('.menu__ph img', menu), phI = 0, phCur = 'cafe-tulipan';
+  var mLinks = $$('.menu__nav a', menu), phs = $$('.menu__ph img', menu), phI = 0, phCur = phs[0].getAttribute('src');
   phs[0].style.opacity = 1; phs[1].style.opacity = 0;
   function mOrigin() { var r = mBtn.getBoundingClientRect(); return Math.round(r.left + r.width - 13) + 'px ' + Math.round(r.top + r.height / 2) + 'px'; }
   function openMenu() {
@@ -452,21 +594,21 @@
     }
     setTimeout(function () { if (mOpen) mLinks[0].focus({ preventScroll: true }); }, 60);
   }
-  function closeMenu(focusBtn) {
+  function closeMenu(focusBtn, keepStopped) {
     if (!mOpen) return; mOpen = false;
     gsap.killTweensOf(menu);
     html.classList.remove('menu-open'); mBtn.setAttribute('aria-expanded', 'false');
     mainEl.inert = footEl.inert = false;
-    if (lenis) lenis.start();
+    if (lenis && !keepStopped) lenis.start();
     tone();
-    if (reduced) menu.hidden = true;
+    if (reduced || keepStopped) menu.hidden = true;
     else gsap.to(menu, { clipPath: 'circle(0px at ' + mOrigin() + ')', duration: .8, ease: 'expo.inOut', onComplete: function () { menu.hidden = true; menu.style.clipPath = ''; } });
     if (focusBtn) mBtn.focus({ preventScroll: true });
   }
   mBtn.addEventListener('click', function () { mOpen ? closeMenu(false) : openMenu(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mOpen) closeMenu(true); });
   mLinks.forEach(function (a) {
-    a.addEventListener('click', function () { closeMenu(false); });
+    a.addEventListener('click', function () { var x = a.hasAttribute('data-page'); if (x) setTimeout(function () { closeMenu(false, true); }, 950); else closeMenu(false); });
     a.addEventListener('mouseenter', function () {
       var n = a.getAttribute('data-ph'); if (!n || n === phCur) return; phCur = n;
       var nx = phs[1 - phI], cu = phs[phI], done = false;
@@ -474,12 +616,11 @@
         if (done || phCur !== n) return; done = true;
         nx.style.opacity = 1; nx.style.transform = 'scale(1)'; cu.style.opacity = 0; cu.style.transform = 'scale(1.06)'; phI = 1 - phI;
       };
-      nx.onload = go; nx.src = 'img/' + n + '-800.webp?v=2';
+      nx.onload = go; nx.src = n;
       if (nx.complete && nx.naturalWidth) go();
     });
   });
-  // a menüképek előre töltése, amikor a gépnek ideje van
-  if (canHover) (window.requestIdleCallback || setTimeout)(function () { mLinks.forEach(function (a) { var i = new Image(); i.src = 'img/' + a.getAttribute('data-ph') + '-800.webp?v=2'; }); });
+  if (canHover) (window.requestIdleCallback || setTimeout)(function () { mLinks.forEach(function (a) { var i = new Image(); i.src = a.getAttribute('data-ph'); }); });
 
   /* ------------------------------------------------------------------ sarokfeliratok színe: világos a sötét szakaszok fölött */
   var darkEls = $$('[data-tone="dark"]'), darkCh = $$('.ch--dark'), sky = false, night = false, tTop = null, tBot = null;
@@ -505,44 +646,63 @@
   window.addEventListener('scroll', function () { if (!toneQ) { toneQ = true; requestAnimationFrame(function () { toneQ = false; tone(); uiState(); }); } }, { passive: true });
   window.addEventListener('resize', function () { heroH = $('#top').offsetHeight; });
 
-  /* ------------------------------------------------------------------ nyitány: ecsetvonásos kör, levél, felirat; a kör kinyílik a kávézóra */
-  (function () {
-    var gate = $('#gate');
-    if (!html.classList.contains('gate-on')) { heroIn(); return; }
-    try { sessionStorage.setItem('avira-gate', '1'); } catch (e) {}
+  /* ------------------------------------------------------------------ nyitány: a logó kirajzolódik, egy kis ablakban képek villannak, az utolsó kitágul a nyitóképpé */
+  function introRun() {
+    var intro = $('#intro');
+    try { sessionStorage.setItem('avira-intro', '1'); } catch (e) {}
     if (lenis) lenis.stop();
-    var hole = $('.gate__hole'), ph = $('.gate__ph'), mark = $('.gate__mark');
-    var vmin = Math.min(innerWidth, innerHeight), vmax = Math.max(innerWidth, innerHeight);
-    var s0 = (Math.min(vmin * .46, 300) * .84) / (1.5 * vmax);
-    var st = { s: 0 };
-    var setHole = function () { var s = Math.max(st.s, .0005); hole.style.transform = 'scale(' + s + ')'; ph.style.transform = 'scale(' + (1 / s) + ')'; };
-    var fin = false;
+    var logo = $('.intro__logo'), win = $('.intro__win'), wimgs = $$('img', win), hero = $('.intro__hero'), himg = $('img', hero);
+    var fin = false, tl = null;
     var done = function () {
       if (fin) return; fin = true;
-      html.classList.remove('gate-on');
+      html.classList.remove('intro-on');
       if (lenis) lenis.start();
       ScrollTrigger.refresh(); tone();
     };
-    var img = $('img', ph);
-    Promise.all([document.fonts ? document.fonts.load('400 40px Bellefair') : 0, img.decode ? img.decode().catch(function () {}) : 0]).then(function () {
+    var dec = function (im) { return im.decode ? im.decode().catch(function () {}) : 0; };
+    var wait = new Promise(function (res) { setTimeout(res, 1400); });
+    Promise.race([Promise.all([document.fonts ? document.fonts.ready : 0, dec(himg)].concat(wimgs.map(dec))), wait]).then(function () {
       requestAnimationFrame(function () { requestAnimationFrame(function () {
-        var tl = gsap.timeline({ onComplete: done });
-        tl.to('.gate__enso', { '--a': '360deg', duration: 1.35, ease: 'power2.inOut' }, 0)
-          .to('.gate__leaf', { opacity: 1, y: 0, scale: 1, duration: .9, ease: 'expo.out' }, .45)
-          .to('.gate__word span', { y: 0, duration: 1.1, stagger: .05, ease: 'expo.out' }, .6)
-          .to('.gate__sub', { opacity: 1, duration: .8, ease: 'power2.out' }, .95)
-          .set(st, { s: s0, onComplete: setHole }, 1.75)
-          .to('.gate__leaf', { opacity: 0, scale: .8, duration: .4, ease: 'power2.in' }, 1.7)
-          .to('.gate__word, .gate__sub', { opacity: 0, y: 12, duration: .5, ease: 'power2.in' }, 1.75)
-          .to(st, { s: 1, duration: 1.35, ease: 'expo.inOut', onUpdate: setHole }, 1.95)
-          .to(mark, { scale: 1 / s0 * 1.02, opacity: 0, duration: 1.35, ease: 'expo.inOut' }, 1.95)
-          .call(heroIn, null, 2.75);
-        var skip = function () { if (tl.progress() < 1) { tl.progress(1); } };
-        ['wheel', 'touchstart', 'keydown', 'click'].forEach(function (ev) { gate.addEventListener(ev, skip, { passive: true }); });
+        var r = win.getBoundingClientRect();
+        var from = 'inset(' + r.top.toFixed(1) + 'px ' + (innerWidth - r.right).toFixed(1) + 'px ' + (innerHeight - r.bottom).toFixed(1) + 'px ' + r.left.toFixed(1) + 'px)';
+        var F = .16, t0 = 1.95;
+        tl = gsap.timeline({ onComplete: done });
+        tl.to('.intro__ring', { '--a': '360deg', duration: 1.3, ease: 'power2.inOut' }, 0)
+          .fromTo('.intro__bean', { opacity: 0, scale: .6, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 1.1, ease: 'expo.out' }, .35)
+          .fromTo('.intro__l', { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out' }, .5)
+          .fromTo('.intro__sub', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .9, ease: 'power2.out' }, .8)
+          .to(logo, { opacity: 0, scale: .92, duration: .45, ease: 'power2.in' }, 1.6)
+          .set(win, { visibility: 'visible' }, t0)
+          .fromTo(win, { scale: .82 }, { scale: 1, duration: .8, ease: 'expo.out' }, t0);
+        wimgs.forEach(function (im, i) { tl.set(im, { opacity: 1 }, t0 + i * F); });
+        var t1 = t0 + wimgs.length * F;
+        tl.set(hero, { visibility: 'visible', clipPath: from }, t1)
+          .to(hero, { clipPath: 'inset(0px 0px 0px 0px)', duration: 1.35, ease: 'expo.inOut' }, t1 + .05)
+          .fromTo(himg, { scale: 1.32 }, { scale: 1.04, duration: 1.35, ease: 'expo.inOut' }, t1 + .05)
+          .to(hero, { '--sh': 1, duration: 1, ease: 'power2.inOut' }, t1 + .3)
+          .call(heroIn, null, t1 + .75);
+        var skip = function () { if (!fin) { tl.progress(1); done(); heroIn(); } };
+        ['wheel', 'touchstart', 'click'].forEach(function (ev) { intro.addEventListener(ev, skip, { passive: true }); });
         window.addEventListener('keydown', skip, { once: true });
       }); });
     });
-  })();
+  }
+  function arrive() {
+    if (lenis) lenis.stop();
+    var im = $('.hero__img'), went = false;
+    var go = function () {
+      if (went) return; went = true;
+      if (lenis) lenis.start();
+      gsap.to($('.pt__in', pt), { y: -50, opacity: 0, duration: .55, ease: 'power2.in' });
+      gsap.fromTo(pt, { yPercent: 0 }, { yPercent: -100, duration: 1.05, ease: 'expo.inOut', delay: .12, onComplete: function () { html.classList.remove('pt-in'); gsap.set([pt, $('.pt__in', pt)], { clearProps: 'all' }); } });
+      setTimeout(heroIn, 520);
+    };
+    setTimeout(go, 1200);
+    Promise.resolve(im && im.decode ? im.decode().catch(function () {}) : 0).then(function () { requestAnimationFrame(go); });
+  }
+  if (html.classList.contains('intro-on') && $('#intro')) introRun();
+  else if (html.classList.contains('pt-in') && pt) arrive();
+  else heroIn();
 
   /* ------------------------------------------------------------------ előtűnések */
   function io(els, fn, margin) {
@@ -550,30 +710,37 @@
     var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { o.unobserve(e.target); fn(e.target); } }); }, { rootMargin: margin || '0px 0px -14% 0px' });
     els.forEach(function (el) { o.observe(el); });
   }
-  $$('.nap__head p, .ch__tx, .carte__side > p, .studio__txt p, .coach__q, .coach__who, .week__head p, .fees__p, .week__book, .night__dl, .night__btns, .rev__t, .foot__small').forEach(function (el) { el.classList.add('rv'); });
+  $$('.nap__head p, .ch__tx, .carte__side > p, .studio__txt p, .coach__q, .coach__who, .week__head p, .fees__p, .week__book, .night__dl, .night__btns, .rev__t, .xpage, .tease__s, .tease .go, .foot__addr, .foot__small').forEach(function (el) { el.classList.add('rv'); });
   $$('.ch__ph, .studio__ph, .coach__ph, .rev__ph').forEach(function (el) { el.classList.add('rvi'); });
   if (reduced) { $$('.rv, .rvi, .bl').forEach(function (el) { el.classList.add('is-in'); }); }
   else {
     io($$('.rv, .rvi'), function (el) { el.classList.add('is-in'); });
     io($$('.bl').filter(function (h) { return h.id !== 'heroTitle'; }), function (h) { blIn(h, 0); }, '0px 0px -12% 0px');
-    gsap.from('.pair__i, .pair__amp', { scrollTrigger: { trigger: '.pair', start: 'top 86%' }, y: 46, opacity: 0, duration: 1.5, stagger: .12, ease: 'expo.out', clearProps: 'transform,opacity' });
-    gsap.from('#weekGrid .day', { scrollTrigger: { trigger: '#weekGrid', start: 'top 84%' }, y: 36, opacity: 0, duration: 1.3, stagger: .08, ease: 'expo.out', clearProps: 'transform,opacity' });
-    gsap.from('#priceList li', { scrollTrigger: { trigger: '#priceList', start: 'top 84%' }, y: 18, opacity: 0, duration: 1.2, stagger: .05, ease: 'expo.out', clearProps: 'transform,opacity' });
-    gsap.fromTo('.foot__enso', { '--a': '0deg' }, { '--a': '360deg', duration: 2.8, ease: 'power2.inOut', scrollTrigger: { trigger: '#foot', start: 'top 72%' } });
+    if ($('.pair')) gsap.from('.pair__i, .pair__amp', { scrollTrigger: { trigger: '.pair', start: 'top 86%' }, y: 46, opacity: 0, duration: 1.5, stagger: .12, ease: 'expo.out', clearProps: 'transform,opacity' });
+    if ($('#weekGrid')) {
+      gsap.from('#weekGrid .day', { scrollTrigger: { trigger: '#weekGrid', start: 'top 84%' }, y: 36, opacity: 0, duration: 1.3, stagger: .08, ease: 'expo.out', clearProps: 'transform,opacity' });
+      gsap.from('#priceList li', { scrollTrigger: { trigger: '#priceList', start: 'top 84%' }, y: 18, opacity: 0, duration: 1.2, stagger: .05, ease: 'expo.out', clearProps: 'transform,opacity' });
+    }
+    if ($('.tease__lg')) gsap.from('.tease__lg', { scrollTrigger: { trigger: '.tease', start: 'top 62%' }, scale: .7, opacity: 0, duration: 1.8, ease: 'expo.out' });
+    gsap.fromTo('.foot__ring', { '--a': '0deg' }, { '--a': '360deg', duration: 2.6, ease: 'power2.inOut', scrollTrigger: { trigger: '#foot', start: 'top 80%' } });
+    gsap.from('.foot__m--p', { scrollTrigger: { trigger: '#foot', start: 'top 80%' }, y: 30, opacity: 0, duration: 1.6, delay: .3, ease: 'expo.out', clearProps: 'transform,opacity' });
   }
-  // levélárnyék: csak akkor mozog, amikor látszik
-  if ('IntersectionObserver' in window) {
-    var lo = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('is-on', e.isIntersecting); }); });
-    $$('.shade-leaf').forEach(function (el) { lo.observe(el); });
+  if ($('#ledeP')) {
+    if (reduced) lightLede(1);
+    else if (canHover) ScrollTrigger.create({ trigger: '#ledeP', start: 'top 82%', end: 'bottom 42%', onUpdate: function (st) { lightLede(st.progress); } });
+    else io([$('#ledeP')], function () { var o = { p: 0 }; gsap.to(o, { p: 1, duration: 2.8, ease: 'none', onUpdate: function () { lightLede(o.p); } }); }, '0px 0px -22% 0px');
   }
-  // bevezető mondat: egérrel a görgetéssel világosodik, érintőn egyszer, időzítve
-  if (reduced) lightLede(1);
-  else if (canHover) ScrollTrigger.create({ trigger: '#ledeP', start: 'top 82%', end: 'bottom 42%', onUpdate: function (st) { lightLede(st.progress); } });
-  else io([$('#ledeP')], function () { var o = { p: 0 }; gsap.to(o, { p: 1, duration: 2.8, ease: 'none', onUpdate: function () { lightLede(o.p); } }); }, '0px 0px -22% 0px');
+  initLeaves();
 
-  /* ------------------------------------------------------------------ egy nap: a háttér fénye hajnaltól éjszakáig változik, a napóra pontja halad */
-  (function () {
-    var bg = $('.nap__bg'), layers = [], cs = [], F = { cur: 0, tgt: 0, run: false }, lastTxt = '', lastN = '', lastOp = [];
+  // egérrel: a nyitókép lassabban gördül el, a pilates kép a keretében úszik
+  if (desk()) {
+    gsap.to('.hero__stack', { yPercent: 16, ease: 'none', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } });
+    if ($('.tease')) gsap.fromTo('.tease__ph img', { yPercent: -7 }, { yPercent: 7, ease: 'none', scrollTrigger: { trigger: '.tease', start: 'top bottom', end: 'bottom top', scrub: true } });
+  }
+
+  /* ------------------------------------------------------------------ egy nap: a háttér fénye hajnaltól éjszakáig változik, a napórán a pont halad, mögötte vonal */
+  if (nap) (function () {
+    var bg = $('.nap__bg'), layers = [], cs = [], F = { cur: 0, tgt: 0, run: false }, lastTxt = '', lastN = '', lastOp = [], lastArc = '';
     CC.forEach(function (c) { var i = document.createElement('i'); i.style.background = c; layers.push(i); lastOp.push(-1); });
     chs.forEach(function (c, k) { c.style.setProperty('--c', CC[k]); });
     function measure() {
@@ -594,7 +761,8 @@
       }
       var ci = Math.max(0, f - 1), i0 = Math.min(TT.length - 1, Math.floor(ci)), i1 = Math.min(TT.length - 1, i0 + 1);
       var h = TT[i0] + (TT[i1] - TT[i0]) * (ci - i0), a = ang(h);
-      dialDot.setAttribute('cx', (Math.cos(a) * 101).toFixed(2)); dialDot.setAttribute('cy', (Math.sin(a) * 101).toFixed(2));
+      dialDot.setAttribute('cx', (Math.cos(a) * DR).toFixed(2)); dialDot.setAttribute('cy', (Math.sin(a) * DR).toFixed(2));
+      var d = arcTo(h); if (d !== lastArc) { lastArc = d; dialArc.setAttribute('d', d); }
       var txt = hm(Math.round(h * 12) * 5); if (txt !== lastTxt) { lastTxt = txt; dialT.textContent = txt; }
       var nn = '0' + (Math.min(TT.length - 1, Math.round(ci)) + 1) + ' / 0' + TT.length; if (nn !== lastN) { lastN = nn; dialN.textContent = nn; }
       var nt = f >= 6.5; if (nt !== night) { night = nt; nap.classList.toggle('is-night', nt); tone(); }
@@ -622,48 +790,6 @@
       F.tgt = target(); if (!F.run) { F.run = true; gsap.ticker.add(tick); }
     } });
     if (!reduced && !canHover) io(chs.map(function (c) { return $('.ch__time', c); }), function (el) { gsap.from(el, { opacity: 0, x: -14, duration: 1.2, ease: 'expo.out' }); });
-  })();
-
-  /* ------------------------------------------------------------------ kerek tükrön át a pilates terembe */
-  (function () {
-    var sec = $('#portal'), c = $('#portalC'), im = $('.portal__img', c), tt = $('#portalT'), ss = $('.portal__s'), rings = $$('.portal__rings i');
-    var s0 = .2;
-    function measure() {
-      var vmin = Math.min(innerWidth, innerHeight), vmax = Math.max(innerWidth, innerHeight);
-      s0 = (vmin * (innerWidth < 700 ? .62 : .44)) / (1.6 * vmax);
-      sec.style.setProperty('--s0', s0.toFixed(4));
-    }
-    function ease(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-    function apply(p) {
-      var e = ease(Math.min(1, p / .78)), s = s0 + (1 - s0) * e;
-      c.style.transform = 'scale(' + s.toFixed(4) + ')';
-      im.style.transform = 'scale(' + ((1 / s) * (1.22 - .22 * e)).toFixed(4) + ')';
-      rings.forEach(function (r, i) { var k = s * (1.16 + i * .2) + e * .3; r.style.transform = 'scale(' + k.toFixed(4) + ')'; r.style.opacity = ((.55 - i * .12) * (1 - e)).toFixed(3); });
-      tt.style.transform = 'translate3d(0,' + (-e * 8).toFixed(2) + 'vh,0) scale(' + (1 + e * .35).toFixed(3) + ')';
-      tt.style.color = e > .35 ? 'var(--cream)' : 'var(--ink)';
-      tt.style.opacity = (e < .35 ? 1 - e * 1.4 : Math.min(1, (e - .35) * 3)).toFixed(3);
-      ss.style.opacity = Math.max(0, (e - .7) * 3.3).toFixed(3);
-    }
-    measure(); apply(0);
-    if (reduced) { apply(1); return; }
-    var P = { cur: 0, tgt: 0, run: false }, on = false, played = false;
-    function tick() {
-      var d = P.tgt - P.cur;
-      if (Math.abs(d) < .0004) { P.cur = P.tgt; apply(P.cur); P.run = false; gsap.ticker.remove(tick); return; }
-      P.cur += d * (1 - Math.exp(-gsap.ticker.deltaRatio() * 16.7 / 110)); apply(P.cur);
-    }
-    function set() {
-      measure();
-      on = desk(); sec.classList.toggle('is-pinned', on);
-      if (!on) apply(played ? 1 : 0);
-    }
-    set();
-    ScrollTrigger.addEventListener('refreshInit', set);
-    ScrollTrigger.create({ trigger: sec, start: 'top top', end: 'bottom bottom', onUpdate: function (st) { if (!on) return; P.tgt = st.progress; if (!P.run) { P.run = true; gsap.ticker.add(tick); } } });
-    ScrollTrigger.create({ trigger: sec, start: 'top 35%', onEnter: function () {
-      if (on || played) return; played = true;
-      var o = { p: 0 }; gsap.to(o, { p: 1, duration: 2.2, ease: 'power2.inOut', onUpdate: function () { apply(o.p); } });
-    } });
   })();
 
   /* ------------------------------------------------------------------ kurzor: kis pont, linkek fölött vékony kör (csak egérrel) */

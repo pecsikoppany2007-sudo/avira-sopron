@@ -17,7 +17,7 @@ const { chromium } = require('playwright');
     console.log(mode, 'gate frames', ev.length, 'dropped', d, (100 * d / Math.max(1, ev.length)).toFixed(1) + '%'); await b.close(); return;
   }
   if (phone) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-  await p.goto('http://localhost:8811/?nogate', { waitUntil: 'networkidle' }); if (process.env.PERF_CSS) await p.addStyleTag({ content: process.env.PERF_CSS }); await p.waitForTimeout(3500);
+  await p.goto('http://localhost:8811/' + (process.env.PG || '') + '?nointro', { waitUntil: 'networkidle' }); if (process.env.PERF_CSS) await p.addStyleTag({ content: process.env.PERF_CSS }); await p.waitForTimeout(3500);
   const H = await p.evaluate(() => document.documentElement.scrollHeight - innerHeight);
   await b.startTracing(p, { categories: ['benchmark', 'cc', 'disabled-by-default-devtools.timeline.frame'] });
   if (!phone) { await p.mouse.move(700, 450); for (let y = 0; y < H; y += 220) { await p.mouse.wheel(0, 220); await p.waitForTimeout(70); } await p.waitForTimeout(1200); }

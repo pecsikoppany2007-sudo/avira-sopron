@@ -1,0 +1,42 @@
+/* ------------------------------------------------ órarend és árak */
+.week { background: var(--paper); }
+.week__head { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 80px; align-items: end; margin-bottom: 52px; }
+.week__head h2 { margin: 0; grid-row: 1 / 3; }
+.week__head p { margin: 0; color: var(--ink-2); }
+.week__next { font: 400 22px/1.3 var(--serif); color: var(--ink) !important; }
+.week__next b { font-weight: 400; color: var(--olive); }
+.week__grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.day { padding: 22px 18px 30px; border-right: 1px solid var(--line); min-height: 280px; position: relative; }
+.day:last-child { border-right: 0; }
+.day h3 { font: 400 25px/1 var(--serif); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.day h3 small { font: 500 9.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--olive); }
+.day.is-today { background: rgba(241, 236, 225, .7); }
+.day.is-today::before { content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 3px; background: var(--olive); }
+.slot { display: block; padding: 13px 0; border-top: 1px solid var(--line); }
+.slot b { display: block; font: 400 21px/1.2 var(--serif); font-variant-numeric: tabular-nums; }
+.slot span { font-size: 12.5px; color: var(--ink-2); }
+.slot.is-next b { color: var(--olive); }
+.slot.is-next b::after { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--olive); margin-left: 10px; vertical-align: 4px; animation: breathe 4s ease-in-out infinite; }
+.fees { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px 80px; margin-top: clamp(80px, 10vw, 140px); align-items: start; }
+.fees__h { font-size: clamp(44px, 6vw, 92px); grid-row: 1 / 3; }
+.fees__list { list-style: none; margin: 0; padding: 0; }
+.fees__list li { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 2px 14px; padding: 16px 0; }
+.fees__list .pn { font: 400 clamp(23px, 2.2vw, 31px)/1.2 var(--serif); }
+.fees__list .pl { border-bottom: 1px dotted rgba(35, 39, 29, .35); transform: translateY(-6px); }
+.fees__list .pv { font: 500 15px/1 var(--sans); font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: .04em; }
+.fees__list .pd { grid-column: 1 / -1; font-size: 13.5px; color: var(--ink-2); }
+.fees__list li.is-first .pv { color: var(--olive); }
+.fees__list li.sep { display: block; padding: 26px 0 4px; font: 500 10.5px/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--olive); }
+.fees__list li.sep:first-child { padding-top: 0; }
+.fees__p { color: var(--ink-2); grid-column: 2; }
+.week__book { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; margin-top: 70px; padding-top: 34px; border-top: 1px solid var(--line); }
+.week__book p { margin: 0; color: var(--ink-2); }
+@media (max-width: 900px) {
+  .week__head, .fees { grid-template-columns: 1fr; } .week__head h2, .fees__h { grid-row: auto; margin-bottom: 8px; } .fees__p { grid-column: auto; }
+  .week__grid { grid-template-columns: 1fr; }
+  .day { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 18px 12px; }
+  .day h3 { flex-direction: column; align-items: flex-start; margin: 4px 0 0; }
+  .day .slots { display: flex; flex-wrap: wrap; gap: 0 22px; }
+  .slot { border-top: 0; padding: 6px 0; }
+}
+
