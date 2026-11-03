@@ -8,8 +8,8 @@ const { chromium } = require('playwright');
     await p.goto('http://localhost:8811/?nogate', { waitUntil: 'networkidle' }); await p.waitForTimeout(600);
     const r = await p.evaluate(() => {
       const o = []; const sw = document.documentElement.scrollWidth; if (sw > innerWidth) o.push('scrollWidth ' + sw);
-      document.querySelectorAll('.lm .w, #heroTitle .w, .duo__txt b, .price__list .pn, .coach__name, .day h3, .mi__n').forEach(w => {
-        const h = w.closest('h1,h2,h3,.duo__txt,li,.coach__txt,.mi') || w.parentNode; const a = w.getBoundingClientRect(), c = h.getBoundingClientRect();
+      document.querySelectorAll('.bl .w, .fees__list .pn, .day h3, .mi__n, .ch h3, .menu__nav span, .carte__idx button, .lede__p .wd').forEach(w => {
+        const h = w.closest('h1,h2,h3,li,.mi,p,button,a') || w.parentNode; const a = w.getBoundingClientRect(), c = h.getBoundingClientRect();
         if (a.right > c.right + 6) o.push((w.textContent || '').trim().slice(0, 30) + ' ' + Math.round(a.right - c.right));
       });
       return o;

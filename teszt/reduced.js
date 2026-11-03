@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   await p.goto('http://localhost:8811/', { waitUntil: 'networkidle' }); await p.waitForTimeout(1200);
   const r = await p.evaluate(() => {
-    const hid = [...document.querySelectorAll('.rv, .rvi > span, .lm .w > span, #heroTitle .w > span, .portal__c')].filter(e => { const s = getComputedStyle(e); return +s.opacity < .99 || /matrix\(1, 0, 0, 1, 0, [1-9]/.test(s.transform) || (s.clipPath && s.clipPath !== 'none' && !/inset\(0(px)?\)/.test(s.clipPath)); }).map(e => e.className).slice(0, 6);
+    const hid = [...document.querySelectorAll('.rv, .rvi > span, .bl .w, .lede__p .wd, .portal__c')].filter(e => { const s = getComputedStyle(e); return +s.opacity < .99 || /matrix\(1, 0, 0, 1, 0, [1-9]/.test(s.transform) || (s.clipPath && s.clipPath !== 'none' && !/inset\(0(px)?\)/.test(s.clipPath)); }).map(e => e.className).slice(0, 6);
     return { gate: document.documentElement.classList.contains('gate-on'), hidden: hid };
   });
   console.log(JSON.stringify(r), errs); await b.close();

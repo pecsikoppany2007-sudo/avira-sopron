@@ -6,16 +6,15 @@
 <title>Avira Move &amp; Relax · Kávézó és reformer pilates Sopronban</title>
 <meta name="description" content="Avira Café és Avira Pilates Sopronban, a Táncsics u. 68. alatt, a régi vasáruházban, a GYMTronic mellett. A kávézó minden nap 7 és 22 óra között van nyitva, a reformer pilates órák november 9-én indulnak.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#23271d">
+<meta name="theme-color" content="#f1ece1">
 <meta property="og:title" content="Avira Move & Relax, Sopron">
 <meta property="og:description" content="Kávézó és reformer pilates stúdió a Táncsics u. 68. alatt.">
 <meta property="og:image" content="img/cafe-boksz-1400.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f1ece1'/%3E%3Cpath fill='%235a6630' d='M19.5 33C11 27 8 17 13.5 7c8 6 10 16 6 26zM21 33c3-8 8.5-12.5 14-17-6.5-.5-12 5-14 17z'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/bellefair-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/albert-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/cafe-boksz-1400.webp?v=1" as="image" media="(max-width: 1100px)">
-<link rel="preload" href="img/cafe-boksz-2200.webp?v=1" as="image" media="(min-width: 1101px)">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="preload" href="img/cafe-boksz-1400.webp?v=2" as="image">
+<link rel="stylesheet" href="css/style.css?v=2">
 <script>
   (function () {
     var h = document.documentElement; h.className = h.className.replace('no-js', 'js');
@@ -25,12 +24,11 @@
       h.classList.add('gate-on');
       setTimeout(function () { if (!h.classList.contains('gate-run')) h.classList.remove('gate-on'); }, 3000);
     }
-    try { var l = localStorage.getItem('avira-lang'); if (l && l !== 'hu') h.setAttribute('data-lang-pending', l); } catch (e) {}
   })();
 </script>
 </head>
 <body>
-<a class="skip" href="#hely" data-i18n="skip">Ugrás a tartalomhoz</a>
+<a class="skip" href="#rolunk" data-i18n="skip">Ugrás a tartalomhoz</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -47,106 +45,145 @@
   </div>
   <p class="gate__word"><span>A</span><span>v</span><span>i</span><span>r</span><span>a</span></p>
   <p class="gate__sub">Move &amp; Relax</p>
-  <div class="gate__hole"><div class="gate__ph"><img src="img/cafe-boksz-1400.webp?v=1" alt=""></div></div>
+  <div class="gate__hole"><div class="gate__ph"><img src="img/cafe-boksz-1400.webp?v=2" alt=""></div></div>
 </div>
 
-<header class="nav" id="nav">
-  <a class="brand" href="#top" aria-label="Avira Move &amp; Relax">
-    <svg class="brand__mark" viewBox="-122 -122 244 244" aria-hidden="true"><use href="#enso"/><svg x="-62" y="-66" width="124" height="124" viewBox="0 0 40 40"><use href="#leaf"/></svg></svg>
-    <span class="brand__name">Avira<small>Move &amp; Relax</small></span>
+<!-- sarkokba rögzített kezelők -->
+<header class="ui" id="ui">
+  <a class="ui__brand" href="#top" aria-label="Avira Move &amp; Relax, az oldal teteje">
+    <svg class="ui__mark" viewBox="-122 -122 244 244" aria-hidden="true"><use href="#enso"/><svg x="-62" y="-66" width="124" height="124" viewBox="0 0 40 40"><use href="#leaf"/></svg></svg>
+    <span class="ui__name">Avira<small>Move &amp; Relax</small></span>
   </a>
-  <nav class="nav__links" id="navLinks" aria-label="Fő menü">
-    <a href="#kavezo" data-i18n="nav.cafe">Kávézó</a>
-    <a href="#etlap" data-i18n="nav.menu">Étlap</a>
-    <a href="#pilates" data-i18n="nav.pilates">Pilates</a>
-    <a href="#orarend" data-i18n="nav.time">Órarend</a>
-    <a href="#arak" data-i18n="nav.prices">Árak</a>
-    <a href="#elerhetoseg" data-i18n="nav.contact">Elérhetőség</a>
-  </nav>
-  <div class="nav__lang" role="group" aria-label="Nyelv">
-    <button type="button" data-lang="hu" aria-pressed="true">HU</button>
-    <button type="button" data-lang="de" aria-pressed="false">DE</button>
-    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <div class="ui__r">
+    <div class="ui__lang" role="group" aria-label="Nyelv">
+      <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="ui__menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="ui__menuT" data-i18n="ui.menu">Menü</span><span class="ui__bars" aria-hidden="true"><i></i><i></i></span></button>
   </div>
-  <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks"><span class="sr" data-i18n="nav.open">Menü</span><i></i><i></i></button>
 </header>
+<p class="ui__live" id="live"><i class="live__dot"></i><span id="liveTxt">Avira Café: minden nap 7–22</span></p>
+<p class="ui__clock" aria-hidden="true"><span>Sopron</span> <b id="clock">--:--</b></p>
+
+<!-- teljes képernyős menü -->
+<div class="menu" id="menu" hidden>
+  <nav class="menu__nav" aria-label="Fő menü">
+    <a href="#rolunk" data-ph="cafe-tulipan"><i>01</i><span data-i18n="nav.about">Az Avira</span></a>
+    <a href="#nap" data-ph="kave"><i>02</i><span data-i18n="nav.day">Egy nap nálunk</span></a>
+    <a href="#etlap" data-ph="brunch"><i>03</i><span data-i18n="nav.menu">Étlap</span></a>
+    <a href="#pilates" data-ph="pilates-terem"><i>04</i><span data-i18n="nav.pilates">Pilates stúdió</span></a>
+    <a href="#orarend" data-ph="sziszi"><i>05</i><span data-i18n="nav.time">Órarend és árak</span></a>
+    <a href="#elerhetoseg" data-ph="cafe-felirat"><i>06</i><span data-i18n="nav.contact">Elérhetőség</span></a>
+  </nav>
+  <figure class="menu__ph" aria-hidden="true"><img src="img/cafe-tulipan-800.webp?v=2" alt=""><img alt=""></figure>
+  <div class="menu__foot">
+    <p>9400 Sopron, Táncsics M. u. 68.<br><a href="tel:+36303517615">06 30 351 7615</a></p>
+    <p><a href="https://www.instagram.com/avira_sopron/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/p/Avira-Move-Relax-61593344377037/" target="_blank" rel="noopener">Facebook</a></p>
+  </div>
+</div>
 
 <main id="main">
-  <section class="hero" id="top" data-cur="dark">
-    <div class="hero__stack">
-      <img class="hero__img" src="img/cafe-boksz-1400.webp?v=1" srcset="img/cafe-boksz-800.webp?v=1 800w, img/cafe-boksz-1400.webp?v=1 1400w, img/cafe-boksz-2200.webp?v=1 2200w" sizes="100vw" alt="Az Avira Café terrakotta színű bokszai, fölöttük növénykoszorús lámpák a lécfal előtt" fetchpriority="high">
-    </div>
-    <div class="hero__shade" aria-hidden="true"></div>
-    <div class="hero__in">
-      <h1 class="hero__title" id="heroTitle" data-i18n="hero.title">Kávézó és reformer pilates Sopronban</h1>
-      <p class="hero__addr" data-i18n="hero.addr">Táncsics u. 68., a régi vasáruházban, a GYMTronic mellett</p>
-      <div class="hero__btns">
-        <a class="btn btn--light" href="#etlap" data-i18n="hero.menu">Étlap</a>
-        <a class="btn btn--ghost" href="#orarend" data-i18n="hero.time">Pilates órarend</a>
+  <section class="hero" id="top" data-tone="dark">
+    <div class="hero__frame">
+      <div class="hero__stack">
+        <img class="hero__img" src="img/cafe-boksz-1400.webp?v=2" srcset="img/cafe-boksz-800.webp?v=2 800w, img/cafe-boksz-1400.webp?v=2 1400w, img/cafe-boksz-2200.webp?v=2 2200w" sizes="100vw" alt="Az Avira Café terrakotta színű bokszai, fölöttük növénykoszorúk a lécfal előtt" fetchpriority="high">
       </div>
-    </div>
-    <div class="hero__bar">
-      <p class="live" id="live"><i class="live__dot"></i><span id="liveTxt">Avira Café: minden nap 7–22</span></p>
-      <p class="hero__clock" aria-hidden="true">Sopron <span id="clock">--:--</span></p>
-    </div>
-  </section>
-
-  <section class="sec hely" id="hely">
-    <div class="wrap hely__head">
-      <h2 class="lm" data-i18n="hely.title">Egy épületben a GYMTronic edzőteremmel</h2>
-      <p class="hely__p" data-i18n="hely.p">Az Avira a régi vasáruházban nyílt meg, ugyanott, ahol a GYMTronic edzőterem van. Két részből áll: az Avira Café reggel 7-től este 10-ig vár, az Avira Pilates stúdióban pedig november 9-től tartunk reformer pilates órákat.</p>
-    </div>
-    <div class="duo" id="duo">
-      <a class="duo__p duo__p--relax" href="#kavezo">
-        <span class="duo__ph"><img src="img/cafe-tulipan-1400.webp?v=1" srcset="img/cafe-tulipan-800.webp?v=1 800w, img/cafe-tulipan-1400.webp?v=1 1400w" sizes="(min-width: 900px) 60vw, 100vw" alt="Tulipánok a kávézó asztalán, mögöttük a lécfal" loading="lazy"></span>
-        <span class="duo__big" aria-hidden="true">Relax</span>
-        <span class="duo__txt"><b>Avira Café</b><span data-i18n="duo.cafe">Kávé, brunch, smoothie és koktél, minden nap 7–22</span></span>
-      </a>
-      <a class="duo__p duo__p--move" href="#pilates">
-        <span class="duo__ph"><img src="img/pilates-terem-1400.webp?v=1" srcset="img/pilates-terem-800.webp?v=1 800w, img/pilates-terem-1400.webp?v=1 1400w" sizes="(min-width: 900px) 60vw, 100vw" alt="Reformer gépek a világos pilates teremben, kerek tükrökkel" loading="lazy"></span>
-        <span class="duo__big" aria-hidden="true">Move</span>
-        <span class="duo__txt"><b>Avira Pilates</b><span data-i18n="duo.pil">Funkcionális reformer pilates, november 9-től</span></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="sec tour" id="kavezo" data-cur="dark">
-    <div class="tour__pin" id="tourPin">
-     <div class="tour__stick">
-      <div class="tour__track" id="tourTrack">
-        <div class="tour__intro">
-          <h2 class="lm" data-i18n="cafe.title">Avira Café</h2>
-          <p data-i18n="cafe.p1">Olasz Caffè Vergnano 1882 kávét főzünk. Reggel brunch, napközben pinsa, saláta és sajttál, edzés után smoothie vagy fehérjeshake, este koktél és csapolt Augustiner.</p>
-          <p data-i18n="cafe.p2">Kutyabarát hely vagyunk, a kutyádat is nyugodtan hozhatod. Érvényes GYMTronic-bérlettel 10% kedvezményt kapsz.</p>
-          <a class="btn btn--light" href="#etlap" data-i18n="cafe.btn">Az étlap</a>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__in">
+        <h1 class="hero__title bl" id="heroTitle" data-i18n="hero.title">Kávézó és reformer pilates Sopronban</h1>
+        <p class="hero__addr" data-i18n="hero.addr">Táncsics u. 68., a régi vasáruházban, a GYMTronic mellett</p>
+        <div class="hero__btns">
+          <a class="btn btn--light" href="#etlap" data-i18n="hero.menu">Étlap</a>
+          <a class="btn btn--ghost" href="#orarend" data-i18n="hero.time">Pilates órarend</a>
         </div>
-        <figure class="tour__ph tour__ph--w"><span><img src="img/cafe-sarok-1400.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c1">Növénykoszorúk a bokszok fölött</figcaption></figure>
-        <figure class="tour__ph tour__ph--t"><span><img src="img/cafe-felirat-800.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c2">Az Avira felirat a lécfalon</figcaption></figure>
-        <figure class="tour__ph tour__ph--w"><span><img src="img/cafe-pult-1400.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c3">A pult és a hűtővitrin</figcaption></figure>
-        <figure class="tour__ph tour__ph--s"><span><img src="img/kutya-604.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c4">Kutyabarát hely vagyunk</figcaption></figure>
-        <figure class="tour__ph tour__ph--w"><span><img src="img/cafe-fotelek-1400.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c5">Fotelek a kisebb asztaloknál</figcaption></figure>
-        <figure class="tour__ph tour__ph--w"><span><img src="img/bar-polc-1400.webp?v=1" alt="" loading="lazy"></span><figcaption data-i18n="tour.c6">Koktélok és röviditalok este 10-ig</figcaption></figure>
       </div>
-     </div>
+      <a class="hero__down" href="#rolunk" aria-label="Tovább"><i></i></a>
     </div>
   </section>
 
-  <div class="marq" id="marq" aria-hidden="true"><div class="marq__in" id="marqIn"></div></div>
+  <section class="sec lede" id="rolunk">
+    <div class="shade-leaf" aria-hidden="true"></div>
+    <div class="wrap lede__in">
+      <p class="lede__p" id="ledeP" data-i18n="lede.p">Az Avira a régi vasáruházban nyílt meg, egy épületben a GYMTronic edzőteremmel. A kávézó minden nap reggel 7-től este 10-ig vár, a reformer pilates stúdióban november 9-től tartunk órákat.</p>
+      <div class="pair">
+        <a class="pair__i" href="#nap">
+          <span class="pair__ph"><img src="img/cafe-tulipan-800.webp?v=2" alt="Tulipánok a kávézó asztalán, mögöttük a lécfal" loading="lazy"></span>
+          <b>Avira Café</b><span data-i18n="pair.cafe">Kávé, brunch, koktél</span>
+        </a>
+        <span class="pair__amp" aria-hidden="true">&amp;</span>
+        <a class="pair__i" href="#pilates">
+          <span class="pair__ph"><img src="img/pilates-tukor-800.webp?v=2" alt="A pilates stúdió kerek tükrei és reformer gépei" loading="lazy"></span>
+          <b>Avira Pilates</b><span data-i18n="pair.pil">Reformer pilates</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <section class="sec menu" id="etlap">
-    <div class="wrap">
-      <div class="menu__head">
-        <h2 class="lm" data-i18n="menu.title">Étlap</h2>
-        <p data-i18n="menu.lede">Brunch, tálak, pinsa, kávé, smoothie és koktél. Az árak forintban értendők, és tartalmazzák az ÁFA-t.</p>
+  <section class="nap" id="nap" aria-labelledby="napTitle">
+    <div class="nap__bg" aria-hidden="true"></div>
+    <div class="nap__head wrap">
+      <h2 class="bl" id="napTitle" data-i18n="nap.title">Egy nap az Avirában</h2>
+      <p data-i18n="nap.p">Reggel 6-tól este 10-ig, az órarend és az étlap szerint.</p>
+    </div>
+    <div class="nap__grid wrap">
+      <div class="dial" id="dial" aria-hidden="true">
+        <div class="dial__in">
+          <svg class="dial__svg" viewBox="-160 -160 320 320"><use href="#enso" class="dial__enso"/><g id="dialTicks"></g><circle id="dialNow" r="6" class="dial__now"/><circle id="dialDot" r="7.5" class="dial__dot"/></svg>
+          <p class="dial__t" id="dialT">6:00</p>
+          <p class="dial__n" id="dialN">01 / 08</p>
+        </div>
       </div>
-      <div class="tabs" role="tablist" id="tabs" aria-label="Étlap"></div>
-      <div class="menu__body">
-        <div class="menu__list" id="menuList" role="tabpanel"></div>
-        <figure class="menu__photo" id="menuPhoto"><span><img alt="" loading="lazy"></span></figure>
+      <div class="nap__list">
+        <article class="ch" data-t="6" data-c="#e6e3d6">
+          <figure class="ch__ph"><span><img src="img/pilates-ablak-1400.webp?v=2" srcset="img/pilates-ablak-800.webp?v=2 800w, img/pilates-ablak-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Reformer gépek a stúdió nagy ablakai előtt" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time">6:00</p><h3 data-i18n="ch1.h">Az első óra</h3><p data-i18n="ch1.p">Szerdánként már reggel 6-kor indul az első reformer pilates óra. A stúdióban négy vadonatúj Align gép áll a nagy ablakok előtt.</p></div>
+        </article>
+        <article class="ch" data-t="7" data-c="#efe9dc">
+          <figure class="ch__ph"><span><img src="img/kave-1400.webp?v=2" srcset="img/kave-800.webp?v=2 800w, img/kave-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Cappuccino Caffè Vergnano csészében" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time">7:00</p><h3 data-i18n="ch2.h">Nyitunk</h3><p data-i18n="ch2.p">A kávézó minden nap 7-kor nyit. Olasz Caffè Vergnano 1882 kávét főzünk, mandula-, zab- vagy kókuszitallal is.</p></div>
+        </article>
+        <article class="ch" data-t="9.5" data-c="#f3ebda">
+          <figure class="ch__ph"><span><img src="img/brunch-1400.webp?v=2" srcset="img/brunch-800.webp?v=2 800w, img/brunch-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Eggs Benedict, tükörtojás, saláta és kávé az asztalon felülről" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time" data-i18n="ch3.t">Délelőtt</p><h3>Brunch</h3><p data-i18n="ch3.p">Eggs Benedict briósson, burrata kovászos kenyérrel, Croque Madame tükörtojással, amerikai palacsinta erdei gyümölccsel.</p></div>
+        </article>
+        <article class="ch" data-t="12.5" data-c="#efe2cb">
+          <figure class="ch__ph"><span><img src="img/kutya-604.webp?v=2" alt="Barna kutya fekszik a kávézó padlóján" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time" data-i18n="ch4.t">Napközben</p><h3 data-i18n="ch4.h">Pinsa, tálak, saláta</h3><p data-i18n="ch4.p">Ötféle pinsa, sajttál, hidegtál és saláták. Kutyabarát hely vagyunk, a kutyádat is nyugodtan hozhatod.</p></div>
+        </article>
+        <article class="ch" data-t="15" data-c="#e7d6b8">
+          <figure class="ch__ph"><span><img src="img/smoothie-1400.webp?v=2" srcset="img/smoothie-800.webp?v=2 800w, img/smoothie-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Zöld smoothie szívószállal, mellette tulipánok" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time">15:00</p><h3 data-i18n="ch5.h">Délutáni óra, utána smoothie</h3><p data-i18n="ch5.p">Pénteken 15:00-kor, hétfőn 16:00-kor és 17:00-kor van óra. Utána smoothie vagy fehérjeshake a kávézóban, GYMTronic-bérlettel 10% kedvezménnyel.</p></div>
+        </article>
+        <article class="ch" data-t="18" data-c="#cdb592">
+          <figure class="ch__ph"><span><img src="img/pilates-terem-1400.webp?v=2" srcset="img/pilates-terem-800.webp?v=2 800w, img/pilates-terem-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="A pilates terem reformer gépei, tükrök a falon" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time">18:00</p><h3 data-i18n="ch6.h">Esti óra</h3><p data-i18n="ch6.p">Kedden 18:00-kor és csütörtökön 19:00-kor tartjuk az esti órákat, munka után.</p></div>
+        </article>
+        <article class="ch ch--dark" data-t="20.5" data-c="#2f3427">
+          <figure class="ch__ph"><span><img src="img/bar-polc-1400.webp?v=2" srcset="img/bar-polc-800.webp?v=2 800w, img/bar-polc-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Megvilágított italpolc a bárpult fölött" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time" data-i18n="ch7.t">Este</p><h3 data-i18n="ch7.h">Koktélok</h3><p data-i18n="ch7.p">Hugo, Aperol és Limoncello Spritz, Espresso Martini, Negroni és háromféle gin tonic Thomas Henry tonikkal. Virgin Mojito és alkoholmentes gin tonic is van.</p></div>
+        </article>
+        <article class="ch ch--dark" data-t="22" data-c="#1d2018">
+          <figure class="ch__ph"><span><img src="img/cafe-felirat-1400.webp?v=2" srcset="img/cafe-felirat-800.webp?v=2 800w, img/cafe-felirat-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="A megvilágított Avira felirat a lécfalon, növénykoszorú mellette" loading="lazy"></span></figure>
+          <div class="ch__tx"><p class="ch__time">22:00</p><h3 data-i18n="ch8.h">Zárás</h3><p data-i18n="ch8.p">Este 10-kor zárunk, reggel 7-kor újra nyitunk.</p></div>
+        </article>
       </div>
-      <p class="menu__note"><span data-i18n="menu.al">A számok az allergéneket jelölik:</span> <button type="button" class="link" id="alBtn" aria-expanded="false" data-i18n="menu.alBtn">mit jelentenek?</button></p>
-      <p class="menu__al" id="alList" hidden></p>
-      <p class="menu__note"><span data-i18n="menu.more">Sörök, borok, röviditalok és üdítők a teljes itallapon:</span> <a class="link" href="https://58c84dc2-ad03-4c55-9b9d-f693c33d48b2.filesusr.com/ugd/da5e4c_2cfbd62332534d759f40d5adbd12f05f.pdf" target="_blank" rel="noopener" data-i18n="menu.pdf">étlap és itallap (PDF)</a></p>
+    </div>
+  </section>
+
+  <section class="sec carte" id="etlap" data-tone="dark">
+    <div class="wrap carte__grid">
+      <div class="carte__side">
+        <h2 class="bl" data-i18n="menu.title">Étlap</h2>
+        <p data-i18n="menu.lede">Az árak forintban értendők, és tartalmazzák az ÁFA-t.</p>
+        <div class="carte__idx" id="tabs" role="tablist" aria-label="Étlap"></div>
+      </div>
+      <div class="carte__main">
+        <div class="carte__list" id="menuList" role="tabpanel"></div>
+        <p class="carte__note"><span data-i18n="menu.al">A számok az allergéneket jelölik:</span> <button type="button" class="link" id="alBtn" aria-expanded="false" data-i18n="menu.alBtn">mit jelentenek?</button></p>
+        <p class="carte__al" id="alList" hidden></p>
+        <p class="carte__note"><span data-i18n="menu.more">Sörök, borok, röviditalok és üdítők a teljes itallapon:</span> <a class="link" href="https://58c84dc2-ad03-4c55-9b9d-f693c33d48b2.filesusr.com/ugd/da5e4c_2cfbd62332534d759f40d5adbd12f05f.pdf" target="_blank" rel="noopener" data-i18n="menu.pdf">étlap és itallap (PDF)</a></p>
+      </div>
     </div>
   </section>
 
@@ -154,99 +191,87 @@
     <div class="portal__stage">
       <div class="portal__rings" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="portal__c" id="portalC">
-        <div class="portal__img"><img src="img/pilates-tukor-1400.webp?v=1" srcset="img/pilates-tukor-800.webp?v=1 800w, img/pilates-tukor-1400.webp?v=1 1400w, img/pilates-tukor-2200.webp?v=1 2200w" sizes="100vw" alt="A pilates stúdió kerek tükrökkel, zöld növényfallal és reformer gépekkel" loading="lazy"></div>
+        <div class="portal__img"><img src="img/pilates-tukor-1400.webp?v=2" srcset="img/pilates-tukor-800.webp?v=2 800w, img/pilates-tukor-1400.webp?v=2 1400w, img/pilates-tukor-2200.webp?v=2 2200w" sizes="100vw" alt="A pilates stúdió kerek tükrökkel, zöld növényfallal és reformer gépekkel" loading="lazy"></div>
       </div>
-      <p class="portal__t" id="portalT"><span>Avira</span> <span>Pilates</span></p>
+      <p class="portal__t" id="portalT">Avira Pilates</p>
       <p class="portal__s" data-i18n="portal.s">Reformer pilates stúdió, november 9-től</p>
     </div>
   </section>
 
-  <section class="sec pil" id="pilates">
-    <div class="wrap pil__grid">
-      <div class="pil__txt">
-        <h2 class="lm" data-i18n="pil.title">Reformer pilates stúdió</h2>
+  <section class="sec studio" id="pilates">
+    <div class="shade-leaf" aria-hidden="true"></div>
+    <div class="wrap studio__grid">
+      <div class="studio__txt">
+        <h2 class="bl" data-i18n="pil.title">Reformer pilates stúdió</h2>
         <p data-i18n="pil.p1">A stúdióban 4 vadonatúj Align reformer gép van, így az órákon kevesen vagytok, és az oktató mindenkire tud figyelni.</p>
         <p data-i18n="pil.p2">Minden óra 50 perces Funkcionális Reformer Pilates. Csoportos órák mellett egyéni és páros órát is tartunk.</p>
-        <div class="pil__btns"><a class="btn btn--dark" href="#orarend" data-i18n="pil.btn1">Órarend</a><a class="btn btn--line" href="#arak" data-i18n="pil.btn2">Árak</a></div>
       </div>
-      <figure class="pil__ph pil__ph--a"><span><img src="img/pilates-ablak-1400.webp?v=1" alt="Reformer gépek a nagy ablak előtt, függönyön átszűrődő fénnyel" loading="lazy"></span></figure>
-      <figure class="pil__ph pil__ph--b"><span><img src="img/align-800.webp?v=1" alt="Align Pilates felirat a reformer gépen" loading="lazy"></span></figure>
+      <figure class="studio__ph"><span><img src="img/pilates-ablak-1400.webp?v=2" srcset="img/pilates-ablak-800.webp?v=2 800w, img/pilates-ablak-1400.webp?v=2 1400w" sizes="(max-width: 980px) 100vw, 45vw" alt="Reformer gépek a nagy ablak előtt, függönyön átszűrődő fénnyel" loading="lazy"></span></figure>
     </div>
     <div class="wrap coach">
-      <figure class="coach__ph"><span><img src="img/sziszi-1200.webp?v=1" alt="Sziszi, az Avira Pilates oktatója egy reformer gépen ül" loading="lazy"></span></figure>
-      <div class="coach__txt">
-        <p class="coach__name">Sziszi</p>
-        <p class="coach__role" data-i18n="coach.role">gyógytornász, reformer pilates oktató</p>
-        <blockquote class="coach__q" id="coachQ" data-i18n="coach.q">„Gyógytornászként fontos számomra a tudatos, kontrollált mozgás és a gyakorlatok helyes kivitelezése. Célom, hogy az órákon ne csak erősödj, hanem testileg-lelkileg is feltöltődj.”</blockquote>
-        <p class="coach__p" data-i18n="coach.p">Akkor is gyere nyugodtan, ha most próbálnád ki először a reformer pilatest.</p>
-      </div>
+      <figure class="coach__ph"><span><img src="img/sziszi-800.webp?v=2" alt="Sziszi, az Avira Pilates oktatója egy reformer gépen ül" loading="lazy"></span></figure>
+      <blockquote class="coach__q" id="coachQ" data-i18n="coach.q">„Gyógytornászként fontos számomra a tudatos, kontrollált mozgás és a gyakorlatok helyes kivitelezése. Célom, hogy az órákon ne csak erősödj, hanem testileg-lelkileg is feltöltődj.”</blockquote>
+      <p class="coach__who"><b>Sziszi</b> <span data-i18n="coach.role">gyógytornász, reformer pilates oktató</span></p>
     </div>
   </section>
 
   <section class="sec week" id="orarend">
     <div class="wrap">
       <div class="week__head">
-        <h2 class="lm" data-i18n="week.title">Órarend</h2>
+        <h2 class="bl" data-i18n="week.title">Órarend</h2>
         <p data-i18n="week.p">November 9-től, hétfőtől péntekig. Minden óra 50 perces Funkcionális Reformer Pilates.</p>
         <p class="week__next" id="weekNext"></p>
       </div>
       <div class="week__grid" id="weekGrid"></div>
-      <p class="week__book" data-i18n="week.book">Az online foglalás hamarosan indul. Addig írj nekünk az Instagramon, vagy kérdezz a kávézóban.</p>
-      <a class="btn btn--dark" href="https://www.instagram.com/avira.pilates/" target="_blank" rel="noopener" data-i18n="week.ig">Írok az Instagramon</a>
-    </div>
-  </section>
-
-  <section class="sec price" id="arak" data-cur="dark">
-    <div class="wrap price__grid">
-      <div class="price__head">
-        <h2 class="lm" data-i18n="price.title">Árak</h2>
-        <p data-i18n="price.p">Az első alkalom 3 000 Ft. Utána jöhetsz alkalmi jeggyel vagy bérlettel.</p>
+      <div class="fees" id="arak">
+        <h3 class="fees__h" data-i18n="price.title">Árak</h3>
+        <ul class="fees__list" id="priceList"></ul>
+        <p class="fees__p" data-i18n="price.p">Az első alkalom 3 000 Ft. Utána jöhetsz alkalmi jeggyel vagy bérlettel.</p>
       </div>
-      <ul class="price__list" id="priceList"></ul>
+      <div class="week__book">
+        <p data-i18n="week.book">Az online foglalás hamarosan indul. Addig írj nekünk az Instagramon, vagy kérdezz a kávézóban.</p>
+        <a class="btn btn--dark" href="https://www.instagram.com/avira.pilates/" target="_blank" rel="noopener" data-i18n="week.ig">Írok az Instagramon</a>
+      </div>
     </div>
   </section>
 
-  <section class="sec contact" id="elerhetoseg">
-    <div class="wrap contact__grid">
+  <section class="sec night" id="elerhetoseg" data-tone="dark">
+    <div class="wrap night__grid">
       <div>
-        <h2 class="lm" data-i18n="contact.title">Elérhetőség</h2>
-        <dl class="contact__dl">
+        <h2 class="bl" data-i18n="contact.title">Elérhetőség</h2>
+        <dl class="night__dl">
           <dt data-i18n="contact.addr">Cím</dt><dd>9400 Sopron, Táncsics Mihály u. 68.<br><span data-i18n="contact.addr2">a régi vasáruházban, a GYMTronic mellett</span></dd>
           <dt data-i18n="contact.cafe">Avira Café</dt><dd data-i18n="contact.cafeH">Hétfőtől vasárnapig 7:00–22:00</dd>
           <dt data-i18n="contact.pil">Avira Pilates</dt><dd><a class="link" href="#orarend" data-i18n="contact.pilH">az órarend szerint</a></dd>
           <dt data-i18n="contact.tel">Telefon</dt><dd><a class="link" href="tel:+36303517615">06 30 351 7615</a></dd>
           <dt>Online</dt><dd><a class="link" href="https://www.instagram.com/avira_sopron/" target="_blank" rel="noopener">@avira_sopron</a> · <a class="link" href="https://www.instagram.com/avira.pilates/" target="_blank" rel="noopener">@avira.pilates</a> · <a class="link" href="https://www.facebook.com/p/Avira-Move-Relax-61593344377037/" target="_blank" rel="noopener">Facebook</a></dd>
         </dl>
-        <div class="contact__btns">
-          <a class="btn btn--dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.690661,16.5730796" target="_blank" rel="noopener" data-i18n="contact.route">Útvonalterv</a>
-          <a class="btn btn--line" href="tel:+36303517615" data-i18n="contact.call">Hívás</a>
+        <div class="night__btns">
+          <a class="btn btn--light" href="https://www.google.com/maps/dir/?api=1&amp;destination=47.690661,16.5730796" target="_blank" rel="noopener" data-i18n="contact.route">Útvonalterv</a>
+          <a class="btn btn--ghost" href="tel:+36303517615" data-i18n="contact.call">Hívás</a>
         </div>
       </div>
       <div class="rev">
-        <figure class="rev__ph"><span><img src="img/cafe-latte-800.webp?v=1" alt="Latte macchiato az asztalon, mellette egy pohár víz" loading="lazy"></span></figure>
+        <figure class="rev__ph"><span><img src="img/cafe-latte-800.webp?v=2" alt="Latte macchiato az asztalon, mellette egy pohár víz" loading="lazy"></span></figure>
         <p class="rev__t" data-i18n="rev.t">Most nyitottunk, ezért még nincs Google-véleményünk. Ha már jártál nálunk, írd meg, milyen volt.</p>
-        <a class="btn btn--line" href="https://search.google.com/local/writereview?placeid=ChIJg4y4RAA7bEcRFUO5doP5UZs" target="_blank" rel="noopener" data-i18n="rev.btn">Vélemény írása a Google-on</a>
+        <a class="btn btn--ghost" href="https://search.google.com/local/writereview?placeid=ChIJg4y4RAA7bEcRFUO5doP5UZs" target="_blank" rel="noopener" data-i18n="rev.btn">Vélemény írása a Google-on</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="foot" id="foot" data-cur="dark">
+<footer class="foot" id="foot" data-tone="dark">
   <div class="foot__mark" aria-hidden="true">
     <svg class="foot__enso" viewBox="-122 -122 244 244"><use href="#enso"/></svg>
     <p class="foot__word">Avira</p>
+    <p class="foot__sub">Move &amp; Relax</p>
   </div>
-  <div class="foot__grid wrap">
-    <p><span class="foot__k" data-i18n="contact.addr">Cím</span>9400 Sopron, Táncsics M. u. 68.</p>
-    <p><span class="foot__k" data-i18n="foot.open">Nyitvatartás</span><span data-i18n="foot.openV">Café: minden nap 7–22</span></p>
-    <p><span class="foot__k" data-i18n="contact.tel">Telefon</span><a href="tel:+36303517615">06 30 351 7615</a></p>
-  </div>
-  <p class="foot__small wrap"><span data-i18n="foot.company">Üzemeltető: Hajnal Bolt Kft. · Üzletvezető: Meszlényi László</span> · <span data-i18n="foot.photos">Fotók: Avira Move &amp; Relax</span> · <button type="button" class="link" id="privBtn" aria-expanded="false" data-i18n="foot.priv">Adatkezelés</button><br><span class="foot__priv" id="priv" hidden data-i18n="foot.privT">Ez az oldal nem használ sütiket, és nem gyűjt személyes adatot. A választott nyelvet a böngésződ jegyzi meg.</span><span data-i18n="foot.demo">Bemutató oldal, nem az Avira hivatalos weboldala.</span> · <span data-i18n="foot.made">Készítette: kettő</span></p>
+  <p class="foot__small wrap"><span data-i18n="foot.company">Üzemeltető: Hajnal Bolt Kft. · Üzletvezető: Meszlényi László</span> · <span data-i18n="foot.photos">Fotók: Avira Move &amp; Relax</span> · <button type="button" class="link" id="privBtn" aria-expanded="false" data-i18n="foot.priv">Adatkezelés</button><span class="foot__priv" id="priv" hidden data-i18n="foot.privT">Ez az oldal nem használ sütiket, és nem gyűjt személyes adatot. A választott nyelvet a böngésződ jegyzi meg.</span><br><span data-i18n="foot.demo">Bemutató oldal, nem az Avira hivatalos weboldala.</span> · <span data-i18n="foot.made">Készítette: kettő</span></p>
 </footer>
 
-<script src="js/gsap.min.js?v=1" defer></script>
-<script src="js/ScrollTrigger.min.js?v=1" defer></script>
-<script src="js/lenis.min.js?v=1" defer></script>
-<script src="js/main.js?v=1" defer></script>
+<script src="js/gsap.min.js?v=2" defer></script>
+<script src="js/ScrollTrigger.min.js?v=2" defer></script>
+<script src="js/lenis.min.js?v=2" defer></script>
+<script src="js/main.js?v=2" defer></script>
 </body>
 </html>
